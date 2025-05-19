@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/forge.css" />
+    <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/css/tyler-font.css" />
+</head>
+
+<body>
+    <forge-scaffold class="scaffold-example" viewport>
+        <div slot="header">
+            <forge-app-bar title-text="Corrections Solutions" theme-mode="scoped">
+                <forge-app-bar-menu-button slot="start" id="menu-button"></forge-app-bar-menu-button>
+                <forge-icon slot="logo" external external-type="custom" name="tyler_talking_t_logo"></forge-icon>
+                <forge-app-bar-help-button slot="end"></forge-app-bar-help-button>
+                <forge-app-bar-notification-button slot="end"></forge-app-bar-notification-button>
+                <forge-app-bar-app-launcher-button slot="end" allow-more="true"></forge-app-bar-app-launcher-button>
+                <forge-app-bar-profile-button slot="end" avatar-text="First Last" full-name="First Last"
+                    email="first.last@tylertech.com"></forge-app-bar-profile-button>
+            </forge-app-bar>
+        </div>
+        <div slot="body-header">
+            <forge-toolbar>
+                <div slot="before-start">
+                    <a href="index.html">
+                        <forge-icon-button aria-label="Icon button demo">
+                            <forge-icon external external-type="standard" name="arrow_back"></forge-icon>
+                        </forge-icon-button>
+                    </a>
+                </div>
+                <div slot="start">
+                    <p class="forge-typography--subheading3">Hardware overview</p>
+                </div>
+            </forge-toolbar>
+            <forge-banner persistent theme="warning" class="maintenance-banner">
+                This device is currently has maintenance mode enabled
+                <forge-icon slot="icon" external external-type="extended" name="wrench"></forge-icon>
+                <forge-button slot="button" variant="outlined" theme="warning">Disable maintenance mode</forge-button>
+              </forge-banner>
+              <forge-banner persistent theme="info-secondary" class="offline-banner">
+                This device is currently offline, the last check-in was 2 days ago
+                <forge-icon slot="icon" external external-type="extended" name="wifi_off"></forge-icon>
+              </forge-banner>
+        </div>
+        <forge-mini-drawer slot="body-left" hover id="mini-drawer">
+            <aside>
+                <forge-list navlist>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="home"></forge-icon>
+                        <a href="javascript: void(0)">Home</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="police_badge"></forge-icon>
+                        <a href="javascript: void(0)">Jails</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="warehouse"></forge-icon>
+                        <a href="javascript: void(0)">Warehouses</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="inventory"></forge-icon>
+                        <a href="javascript: void(0)">Order / Receive Inventory</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="menu"></forge-icon>
+                        <a href="javascript: void(0)">Menu</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="shopping_cart"></forge-icon>
+                        <a href="javascript: void(0)">Open Orders</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start"
+                            name="assignment_return"></forge-icon>
+                        <a href="javascript: void(0)">Returns</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="people"></forge-icon>
+                        <a href="javascript: void(0)">Inmates</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="campaign"></forge-icon>
+                        <a href="javascript: void(0)">Broadcasts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="account_balance"></forge-icon>
+                        <a href="javascript: void(0)">Trust Accounts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="assessment"></forge-icon>
+                        <a href="javascript: void(0)">Reports</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="videocam"></forge-icon>
+                        <a href="javascript: void(0)">Video Visits</a>
+                    </forge-list-item>
+                    <forge-list-item selected>
+                        <forge-icon external external-type="standard" slot="start" name="devices"></forge-icon>
+                        <a href="javascript: void(0)">Kiosks and devices</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="dock"></forge-icon>
+                        <a href="javascript: void(0)">Docking Stations</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="voicemail"></forge-icon>
+                        <a href="javascript: void(0)">Voicemail</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="link"></forge-icon>
+                        <a href="javascript: void(0)">Links</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="flag"></forge-icon>
+                        <a href="javascript: void(0)">Billboard</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="article"></forge-icon>
+                        <a href="javascript: void(0)">News</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="update"></forge-icon>
+                        <a href="javascript: void(0)">Update Notes</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start"
+                            name="confirmation_number"></forge-icon>
+                        <a href="javascript: void(0)">Ticket System</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="description"></forge-icon>
+                        <a href="javascript: void(0)">Forms</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="translate"></forge-icon>
+                        <a href="javascript: void(0)">Language Packs</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="build"></forge-icon>
+                        <a href="javascript: void(0)">Tools</a>
+                    </forge-list-item>
+                </forge-list>
+            </aside>
+        </forge-mini-drawer>
+        <div slot="body">
+            <div class="body-container">
+                <div class="left-panel">
+                    <div class="body-content2">
+                        <div class="hardware-title">
+                            <div class="hardware-name">
+                                <forge-icon external external-type="standard" name="devices"
+                                    class="hardware-icon"></forge-icon>
+                                <div class="hardware-name-text">
+                                    <p class="forge-typography--heading6 hardware-name-text-heading">KCJ - L2</p>
+                                    <p class="forge-typography--body1 hardware-name-text-id kiosk-id">Kiosk ID: 21679
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hardware-action-buttons">
+                                <forge-button>
+                                    <forge-icon external external-type="extended" name="code_greater_than"></forge-icon>
+                                    Send command
+                                </forge-button>
+                                <forge-button>
+                                    <forge-icon external external-type="extended" name="cloud_sync"></forge-icon>
+                                    Restart software
+                                </forge-button>
+                                <forge-button>
+                                    <forge-icon external external-type="standard" name="refresh"></forge-icon>
+                                    Reboot
+                                </forge-button>
+                            </div>
+                        </div>
+
+                        <forge-card class="alerts-and-errors-card">
+                            <forge-expansion-panel open>
+                              <div
+                                slot="header"
+                                role="button"
+                                tabindex="0"
+                                style="display: flex; justify-content: space-between; align-items: center;"
+                              >
+                                <div style="display: flex; align-items: center; gap:1rem;">
+                                    <forge-icon external external-type="extended" name="alert"></forge-icon>
+                                    <p class="forge-typography--body1">Alerts or device errors (3)</p>
+                                </div>
+                                <forge-button variant="text" theme="error">
+                                    Show alerts
+                                    <forge-icon external external-type="standard" name="arrow_drop_down"></forge-icon>
+                                </forge-button>
+                              </div>
+                              <ul>
+                              <li>
+                                Firewall not secured – Accessible link(s): 'tiktok.com'
+                              </li>
+                              <li>
+                                Lockdown not enabled
+                              </li>
+                              <li>
+                                IP address isn't in the security settings for this jail
+                              </li>
+                            </ul>
+                            </forge-expansion-panel>
+                          </forge-card>
+
+
+
+                        <forge-card class="hardware-settings-card" raised>
+                            <forge-toolbar auto-height style="--forge-toolbar-padding-block:1.25rem;">
+                                <p class="forge-typography--heading4">General device settings</p>
+                            </forge-toolbar>
+                            <div class="settings-content">
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Device name</p>
+                                        <p class="forge-typography--subheading1">Enter the name or description for the
+                                            device</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-text-field>
+                                            <label>Device name</label>
+                                            <input type="text" />
+                                        </forge-text-field>
+                                    </div>
+                                </div>
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Device type</p>
+                                        <p class="forge-typography--subheading1">Select the type of device it is</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-select aria-label="Label" label="Select device type">
+                                            <forge-option value="1">Booking kiosk</forge-option>
+                                            <forge-option value="2">Cart</forge-option>
+                                            <forge-option value="3">Charging station</forge-option>
+                                            <forge-option value="4">Inmate kiosk</forge-option>
+                                            <forge-option value="5">Inmate tablet</forge-option>
+                                            <forge-option value="6">Lobby kiosk</forge-option>
+                                            <forge-option value="7">Vending Machine</forge-option>
+                                            <forge-option value="8">Video visit - remote kiosk</forge-option>
+                                        </forge-select>
+                                    </div>
+                                </div>
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Device location</p>
+                                        <p class="forge-typography--subheading1">Specify the device's location within
+                                            the facility</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-text-field>
+                                            <label>Location</label>
+                                            <input type="text" />
+                                        </forge-text-field>
+                                    </div>
+                                </div>
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Allowed locations</p>
+                                        <p class="forge-typography--subheading1">Limit device access to specific
+                                            facility areas</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-chip-field density="extra-large">
+                                            <label slot="label" for="tag-input">Enter allowed locations</label>
+                                            <input type="text" id="tag-input" />
+                                        </forge-chip-field>
+                                    </div>
+                                </div>
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Restricted locations</p>
+                                        <p class="forge-typography--subheading1">Restrict device use to designated
+                                            facility areas</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-chip-field density="extra-large">
+                                            <label slot="label" for="tag-input">Enter restricted locations</label>
+                                            <input type="text" id="tag-input" />
+                                        </forge-chip-field>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <forge-toolbar auto-height no-border class="settings-content-footer">
+                                <div slot="end">
+                                    <forge-button variant="raised">
+                                        <forge-icon external external-type="standard" name="save"></forge-icon>
+                                        Save changes
+                                    </forge-button>
+                                </div>
+                            </forge-toolbar>
+                        </forge-card>
+                        <forge-card class="hardware-settings-card" raised>
+                            <forge-toolbar auto-height style="--forge-toolbar-padding-block:1.25rem;">
+                                <p class="forge-typography--heading4">Device features settings</p>
+                            </forge-toolbar>
+                            <div class="settings-content">
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Enable maintenance mode</forge-checkbox>
+                                    <forge-text-field class="maintenance-mode-pin-text-field">
+                                        <label>Maintenance mode pin</label>
+                                        <input type="text" value="1234" />
+                                    </forge-text-field>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Hide Kiosk from report</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Use fulltext match for allowed and restricted
+                                        locations.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Temporary disable this device</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Lock this device</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Show inmate notifications panel on inmate login
+                                        screen.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Require signature input on this kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Enable Inmate Added Contacts on this kiosk.</forge-checkbox>
+                                </div>
+                            </div>
+                            <forge-toolbar auto-height no-border class="settings-content-footer">
+                                <div slot="end">
+                                    <forge-button variant="raised">
+                                        <forge-icon external external-type="standard" name="save"></forge-icon>
+                                        Save changes
+                                    </forge-button>
+                                </div>
+                            </forge-toolbar>
+                        </forge-card>
+                        <forge-card class="hardware-settings-card" raised>
+                            <forge-toolbar auto-height style="--forge-toolbar-padding-block:1.25rem;">
+                                <p class="forge-typography--heading4">Override facility settings</p>
+                            </forge-toolbar>
+                            <div class="settings-content">
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Disable commissary deposits</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Disable phone deposits</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Allow video visitations to be assigned to this
+                                        device</forge-checkbox>
+                                    <forge-select label="Select visitation types" multiple
+                                        class="video-visitation-select" value="1">
+                                        <forge-option value="1">All types</forge-option>
+                                        <forge-option value="2">Public attorney</forge-option>
+                                        <forge-option value="3">Private attorney</forge-option>
+                                        <forge-option value="4">Public defender</forge-option>
+                                        <forge-option value="5">Medical</forge-option>
+                                        <forge-option value="6">Chaplain</forge-option>
+                                    </forge-select>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Enable as hot cart kiosk and accept inmate orders
+                                        only</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Disable biometric requirements on this
+                                        kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Disable Community Readiness on this kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Disable law library on this kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Ad hoc mode. This kiosk can be used for video visits and will bypass
+                                        all requirements for scheduling, registration and restrictions.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Disable video chat and video visitation on this
+                                        kiosk/device.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Disable the free education link on this
+                                        kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Disable premium content from this kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox checked>Prevent scheduled videos from playing on this
+                                        kiosk.</forge-checkbox>
+                                </div>
+                                <div class="checkbox-container">
+                                    <forge-checkbox>Enable Resident Legal Connection.</forge-checkbox>
+                                </div>
+                            </div>
+                            <forge-toolbar auto-height no-border class="settings-content-footer">
+                                <div slot="end">
+                                    <forge-button variant="raised">
+                                        <forge-icon external external-type="standard" name="save"></forge-icon>
+                                        Save changes
+                                    </forge-button>
+                                </div>
+                            </forge-toolbar>
+                        </forge-card>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <forge-card raised class="right-panel-card">
+                        <forge-accordion>
+                            <!-- System Information -->
+                            <forge-expansion-panel open>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="info"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">System information</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Kiosk ID</p>
+                                    <p class="forge-typography--body1 drawer-value">21679</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Kiosk Name / Location</p>
+                                    <p class="forge-typography--body1 drawer-value">KCJ - L2</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Hardware Type</p>
+                                    <p class="forge-typography--body1 drawer-value">Windows Tablet</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Hardware ID</p>
+                                    <p class="forge-typography--body1 drawer-value">A7092050O307</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Facility</p>
+                                    <p class="forge-typography--body1 drawer-value">Knox County, TN</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Facility ID</p>
+                                    <p class="forge-typography--body1 drawer-value">2433</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Kiosk type</p>
+                                    <p class="forge-typography--body1 drawer-value">Booking</p>
+
+                                    <p class="forge-typography--label2 drawer-label">System Time Reported</p>
+                                    <p class="forge-typography--body1 drawer-value">04/29/2025 1:18 pm</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Timezone</p>
+                                    <p class="forge-typography--body1 drawer-value">Central Standard Time</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Sys UpTime</p>
+                                    <p class="forge-typography--body1 drawer-value">43d 2h 29m 32s</p>
+
+                                    <p class="forge-typography--label2 drawer-label">App UpTime</p>
+                                    <p class="forge-typography--body1 drawer-value">0d 13h 10m 0s</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Teamviewer</p>
+                                    <p class="forge-typography--body1 drawer-value"><a
+                                            href="https://teamviewer.com/en-us/download/windows/"
+                                            target="_blank">1023847713</a></p>
+
+                                    <p class="forge-typography--label2 drawer-label">Teamviewer Version</p>
+                                    <p class="forge-typography--body1 drawer-value">15.64.3 HC</p>
+
+                                    <p class="forge-typography--label2 drawer-label">24 hour reboot count</p>
+                                    <p class="forge-typography--body1 drawer-value">0</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Last Check-in</p>
+                                    <p class="forge-typography--body1 drawer-value">4/29/2025 – 2:18 pm EDT</br> <span class="last-checkin-time">(2 days ago)</span></p>
+
+                                    
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Storage and Memory -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="memory"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Storage and CPU</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Drive</p>
+                                    <p class="forge-typography--body1 drawer-value">35,603MB (60%) Free</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Memory</p>
+                                    <p class="forge-typography--body1 drawer-value">2,311MB/4,025MB (57%) Free</p>
+
+                                    <p class="forge-typography--label2 drawer-label">App Memory</p>
+                                    <p class="forge-typography--body1 drawer-value">78MB</p>
+
+                                    <p class="forge-typography--label2 drawer-label">CefSharp Memory</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+
+                                    <p class="forge-typography--label2 drawer-label">CPU</p>
+                                    <p class="forge-typography--body1 drawer-value">0.00%</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Threads</p>
+                                    <p class="forge-typography--body1 drawer-value">45</p>
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Network and Connectivity -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="network_check"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Network and connectivity</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">IP Address</p>
+                                    <p class="forge-typography--body1 drawer-value">172.31.24.71</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Local IP</p>
+                                    <p class="forge-typography--body1 drawer-value">10.8.130.8</p>
+
+                                    <p class="forge-typography--label2 drawer-label">MAC Address</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Dock MAC Address</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Power Management -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="bolt"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Power management</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Battery Level</p>
+                                    <p class="forge-typography--body1 drawer-value">100%</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Time Remaining</p>
+                                    <p class="forge-typography--body1 drawer-value">0.00 hours</p>
+
+                                    <p class="forge-typography--label2 drawer-label">PowerLine</p>
+                                    <p class="forge-typography--body1 drawer-value">Plugged In</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Until Full</p>
+                                    <p class="forge-typography--body1 drawer-value">(not charging)</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Charge Status</p>
+                                    <p class="forge-typography--body1 drawer-value">High</p>
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+
+
+                            <!-- Security Features -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="security"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Security features</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Lockdown Enabled</p>
+                                    <p class="forge-typography--body1 drawer-value">Yes</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Lockdown Version</p>
+                                    <p class="forge-typography--body1 drawer-value">2.00.210</p>
+
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Hardware Components -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="extended" name="usb_port"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Hardware components</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Serial #</p>
+                                    <p class="forge-typography--body1 drawer-value">could not locate</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Touchscreen Type</p>
+                                    <p class="forge-typography--body1 drawer-value">N/A</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Printer Status</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Printer Queue</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Software Dependencies -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="extended" name="application_cog"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Software dependencies</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">C++ Installed</p>
+                                    <p class="forge-typography--body1 drawer-value">Yes</p>
+
+                                    <p class="forge-typography--label2 drawer-label">C++ 2019 Installed</p>
+                                    <p class="forge-typography--body1 drawer-value">Yes</p>
+
+                                    <p class="forge-typography--label2 drawer-label">.NET 4.6.1+</p>
+                                    <p class="forge-typography--body1 drawer-value">Yes</p>
+
+                                    <p class="forge-typography--label2 drawer-label">OS Version</p>
+                                    <p class="forge-typography--body1 drawer-value">N/A (N/A)</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Version</p>
+                                    <p class="forge-typography--body1 drawer-value">3.2.3.9</p>
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Cash and Card Acceptors -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="extended" name="account_cash"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Cash and card acceptors</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Last Cash</p>
+                                    <p class="forge-typography--body1 drawer-value">(None)</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Last Approved Credit</p>
+                                    <p class="forge-typography--body1 drawer-value">3/17/2025 11:03 am (1 months ago)
+                                    </p>
+
+                                    <p class="forge-typography--label2 drawer-label">Acceptor 1</p>
+                                    <p class="forge-typography--body1 drawer-value">Disconnected</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Acceptor 2</p>
+                                    <p class="forge-typography--body1 drawer-value">Disconnected</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Coin Acceptor</p>
+                                    <p class="forge-typography--body1 drawer-value">not reported</p>
+                                </div>
+                            </forge-expansion-panel>
+                            <forge-divider></forge-divider>
+
+                            <!-- Administrative Actions -->
+                            <forge-expansion-panel>
+                                <div slot="header" class="accordion-header">
+                                    <div class="accordion-header-content">
+                                        <forge-icon external external-type="standard" name="admin_panel_settings"
+                                            class="accordion-header-icon"></forge-icon>
+                                        <p class="forge-typography--heading2">Administrative actions</p>
+                                    </div>
+                                    <forge-open-icon></forge-open-icon>
+                                </div>
+                                <div class="drawer-info-grid">
+                                    <p class="forge-typography--label2 drawer-label">Last Updated</p>
+                                    <p class="forge-typography--body1 drawer-value">09/03/2024 17:02 PM CDT</p>
+
+                                    <p class="forge-typography--label2 drawer-label">Updated By</p>
+                                    <p class="forge-typography--body1 drawer-value">Rachel G</p>
+                                </div>
+                            </forge-expansion-panel>
+                        </forge-accordion>
+                    </forge-card>
+                    <forge-card raised class="notes-card">
+                        <forge-toolbar>
+                            <forge-icon slot="start" external external-type="extended" name="comment_text"
+                                class="accordion-header-icon" style="margin-right: 16px;"></forge-icon>
+                            <div slot="start">
+                                <p class="forge-typography--heading2">Notes</p>
+                            </div>
+                        </forge-toolbar>
+                        <div class="notes-card-inner">
+                            <div class="notes-empty-state"
+                                style="color: var(--forge-theme-text-medium); text-align: center; margin: 40% auto;">
+                                <forge-icon external external-type="extended" name="comment_off_outline"></forge-icon>
+                                <p class="forge-typography--body1">No notes added yet</p>
+                            </div>
+                            <!-- Notes will be dynamically inserted here -->
+                        </div>
+                        <div class="notes-card-footer">
+                            <forge-text-field id="note-input-field">
+                                <label>Enter note</label>
+                                <textarea></textarea>
+                            </forge-text-field>
+                            <forge-button variant="outlined" id="add-note-btn">Add Note</forge-button>
+                        </div>
+                    </forge-card>
+                </div>
+            </div>
+        </div>
+    </forge-scaffold>
+</body>
+<script>
+    // Get references to your elements
+    const chipField = document.querySelector('forge-chip-field');
+    const input = document.querySelector('#tag-input');
+
+    // Add mini drawer toggle functionality
+    const menuButton = document.getElementById('menu-button');
+    const miniDrawer = document.getElementById('mini-drawer');
+
+    menuButton.addEventListener('click', () => {
+        miniDrawer.open = !miniDrawer.open;
+    });
+
+    // Get references to checkboxes and their dependent fields
+    const maintenanceModeCheckbox = document.querySelector('.checkbox-container forge-checkbox:has(+ .maintenance-mode-pin-text-field)');
+    const maintenancePinField = document.querySelector('.maintenance-mode-pin-text-field');
+    const videoVisitationCheckbox = document.querySelector('.checkbox-container forge-checkbox:has(+ .video-visitation-select)');
+    const videoVisitationSelect = document.querySelector('.video-visitation-select');
+
+    // Initialize visibility based on initial checkbox states
+    maintenancePinField.style.display = maintenanceModeCheckbox.checked ? 'block' : 'none';
+    videoVisitationSelect.style.display = videoVisitationCheckbox.checked ? 'block' : 'none';
+
+    // Add event listeners for checkbox changes
+    maintenanceModeCheckbox.addEventListener('change', (event) => {
+        maintenancePinField.style.display = event.target.checked ? 'block' : 'none';
+    });
+
+    videoVisitationCheckbox.addEventListener('change', (event) => {
+        videoVisitationSelect.style.display = event.target.checked ? 'block' : 'none';
+    });
+
+    // Function to create a new chip
+    function createChip(value) {
+        if (!value.trim()) return;
+
+        // Create a new chip element
+        const chip = document.createElement('forge-chip');
+        chip.textContent = value.trim();
+
+        // Set the chip type to "input" and dense to true
+        chip.setAttribute('type', 'input');
+        chip.setAttribute('dense', 'true');
+
+        // Add delete functionality
+        chip.addEventListener('forge-chip-delete', (event) => {
+            chip.remove();
+            // Focus the input when a chip is deleted
+            input.focus();
+        });
+
+        // Insert the chip before the input
+        input.parentNode.insertBefore(chip, input);
+
+        // Clear the input
+        input.value = '';
+
+        // Ensure focus remains on the input field after chip creation
+        setTimeout(() => {
+            input.focus();
+        }, 0);
+    }
+
+    // Add event listener for Enter key
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            createChip(input.value);
+        }
+    });
+
+    // Optional: Add chip on blur if addOnBlur is true
+    if (chipField.hasAttribute('add-on-blur')) {
+        input.addEventListener('blur', (event) => {
+            // Check if the related target is outside the chip field
+            // This prevents creating a chip when clicking between chips
+            if (!chipField.contains(event.relatedTarget)) {
+                createChip(input.value);
+            }
+        });
+    }
+
+    // Listen for popover icon clicks if applicable
+    chipField.addEventListener('forge-field-popover-icon-click', (event) => {
+        // Handle popover expansion
+        chipField.popoverExpanded = !chipField.popoverExpanded;
+    });
+
+    // Add custom CSS to ensure chips stay inline with input
+    document.addEventListener('DOMContentLoaded', () => {
+        // Apply styles to make sure chips and input stay on the same line
+        const style = document.createElement('style');
+        style.textContent = `
+    forge-chip-field {
+      --forge-chip-field-content-spacing: 4px;
+      --forge-chip-field-member-spacing: 4px;
+    }
+    
+    forge-chip-field input {
+      flex: 1;
+      min-width: 60px;
+      margin: 2px 0;
+    }
+    
+    forge-chip {
+      display: inline-flex;
+      margin: 2px 4px 2px 0;
+    }
+  `;
+        document.head.appendChild(style);
+    });
+</script>
+<script>
+    // Function to get query parameters
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        const result = {};
+        for (const [key, value] of params) {
+            result[key] = value;
+        }
+        return result;
+    }
+
+    // Function to update the page with device data
+    function updatePageWithDeviceData() {
+        const deviceData = getQueryParams();
+
+        // Only proceed if we have device data
+        if (Object.keys(deviceData).length === 0) return;
+
+        // Update device name/location and kiosk ID in the header
+        const deviceNameHeading = document.querySelector('.hardware-name-text-heading');
+        const kioskIdElement = document.querySelector('.kiosk-id');
+
+        if (deviceData.deviceName) {
+            deviceNameHeading.textContent = deviceData.deviceName;
+        }
+
+        if (deviceData.kioskId) {
+            kioskIdElement.textContent = `Kiosk ID: ${deviceData.kioskId}`;
+        }
+
+        // Update system information in the right panel
+        if (deviceData.kioskId) {
+            updateSystemInfoValue('Kiosk ID', deviceData.kioskId);
+        }
+
+        if (deviceData.deviceName) {
+            updateSystemInfoValue('Kiosk Name / Location', deviceData.deviceName);
+        }
+
+        if (deviceData.hardwareType) {
+            updateSystemInfoValue('Hardware Type', deviceData.hardwareType);
+        }
+
+        if (deviceData.facility) {
+            // Update facility information
+            updateFacilityValue('Jail', deviceData.facility);
+        }
+
+        if (deviceData.deviceType) {
+            // Update device type
+            updateFacilityValue('Type', deviceData.deviceType);
+
+            // Also update the device type select field
+            updateDeviceTypeSelect(deviceData.deviceType);
+        }
+
+        // Update device name input field
+        if (deviceData.deviceName) {
+            const deviceNameInput = document.querySelector('.settings-content-item:first-child input');
+            if (deviceNameInput) {
+                deviceNameInput.value = deviceData.deviceName;
+            }
+        }
+    }
+
+    // Helper function to update system information values
+    function updateSystemInfoValue(label, value) {
+        const systemInfoPanel = document.querySelector('forge-expansion-panel:first-child');
+        if (!systemInfoPanel) return;
+
+        const labels = systemInfoPanel.querySelectorAll('.drawer-label');
+        for (let i = 0; i < labels.length; i++) {
+            if (labels[i].textContent.trim() === label) {
+                const valueElement = labels[i].nextElementSibling;
+                if (valueElement) {
+                    valueElement.textContent = value;
+                }
+                break;
+            }
+        }
+    }
+
+    // Helper function to update facility information
+    function updateFacilityValue(label, value) {
+        const facilityPanel = document.querySelector('forge-expansion-panel:nth-child(9)');
+        if (!facilityPanel) return;
+
+        const labels = facilityPanel.querySelectorAll('.drawer-label');
+        for (let i = 0; i < labels.length; i++) {
+            if (labels[i].textContent.trim() === label) {
+                const valueElement = labels[i].nextElementSibling;
+                if (valueElement) {
+                    valueElement.textContent = value;
+                }
+                break;
+            }
+        }
+    }
+
+    // Helper function to update device type select
+    function updateDeviceTypeSelect(deviceType) {
+        const selectElement = document.querySelector('.settings-content-item:nth-child(2) forge-select');
+        if (!selectElement) return;
+
+        const options = selectElement.querySelectorAll('forge-option');
+        let found = false;
+
+        // Try to find and select matching option
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].textContent.trim().toLowerCase() === deviceType.toLowerCase()) {
+                selectElement.value = options[i].value;
+                found = true;
+                break;
+            }
+        }
+
+        // If no exact match found, try to find a partial match
+        if (!found) {
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].textContent.trim().toLowerCase().includes(deviceType.toLowerCase()) ||
+                    deviceType.toLowerCase().includes(options[i].textContent.trim().toLowerCase())) {
+                    selectElement.value = options[i].value;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Call the function when the page loads
+    document.addEventListener('DOMContentLoaded', updatePageWithDeviceData);
+</script>
+<script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    // Get references to inline messages
+    const errorMessage = document.querySelector('.hardware-settings-card-inline-message.error');
+    const maintenanceMessage = document.querySelector('.hardware-settings-card-inline-message.maintenance');
+    const offlineMessage = document.querySelector('.hardware-settings-card-inline-message.offline');
+
+    // Hide all messages initially
+    errorMessage.style.display = 'none';
+    maintenanceMessage.style.display = 'none';
+    offlineMessage.style.display = 'none';
+
+    // Show appropriate message based on status
+    if (status) {
+        switch (status.toLowerCase()) {
+            case 'error':
+                errorMessage.style.display = 'block';
+                break;
+            case 'maintenance':
+                maintenanceMessage.style.display = 'block';
+                break;
+            case 'offline':
+                offlineMessage.style.display = 'block';
+                break;
+        }
+    }
+</script>
+<script>
+    // Add note functionality
+    const notesCardInner = document.querySelector('.notes-card-inner');
+    const addNoteBtn = document.getElementById('add-note-btn');
+    const noteInputField = document.getElementById('note-input-field');
+
+    // Example author info (in a real app, get this from user context)
+    const authorName = 'Jane Smith';
+    const authorInitials = 'JS';
+
+    function formatDate(date) {
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        const dateStr = date.toLocaleDateString(undefined, options);
+        let hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        return `${dateStr} @ ${hours}:${minutes} ${ampm}`;
+    }
+
+    function updateNotesEmptyState() {
+        const emptyState = document.querySelector('.notes-empty-state');
+        // Hide if there are any .note-item elements
+        if (notesCardInner.querySelector('.note-item')) {
+            emptyState.style.display = 'none';
+        } else {
+            emptyState.style.display = '';
+        }
+    }
+
+    function addNote(content) {
+        const now = new Date();
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'note-item';
+        noteDiv.style.display = 'flex';
+        noteDiv.style.alignItems = 'flex-start';
+        noteDiv.style.gap = '16px';
+        noteDiv.style.marginBottom = '0px';
+        noteDiv.style.position = 'relative';
+        noteDiv.innerHTML = `
+          <forge-avatar letter-count="2" text="Jane Smith" style="--forge-avatar-size: 32px; --forge-avatar-background: #3f51b5;"></forge-avatar>
+          <div>
+            <div class="forge-typography--body2" style="margin-bottom: 2px;">${content}</div>
+            <div class="forge-typography--label2" style="color: var(--forge-theme-text-medium);">
+              ${formatDate(now)} by ${authorName}
+            </div>
+          </div>
+          <forge-icon-button class="note-action-btn">
+            <forge-icon external external-type="standard" name="delete"></forge-icon>
+          </forge-icon-button>
+        `;
+        // Add delete functionality
+        const deleteBtn = noteDiv.querySelector('.note-action-btn');
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            noteDiv.remove();
+            updateNotesEmptyState();
+        });
+        notesCardInner.prepend(noteDiv);
+        updateNotesEmptyState();
+    }
+
+    addNoteBtn.addEventListener('click', () => {
+        const textarea = noteInputField.querySelector('textarea');
+        const value = textarea.value.trim();
+        if (value) {
+            addNote(value);
+            textarea.value = '';
+        }
+    });
+
+    // On page load, ensure empty state is shown if no notes
+    updateNotesEmptyState();
+</script>
+<script>
+    // Function to check if we're on index2.html
+    function isIndex2Page() {
+        return window.location.pathname.endsWith('index2.html');
+    }
+
+    // Function to handle alerts card visibility
+    function handleAlertsCardVisibility() {
+        if (!isIndex2Page()) return;
+
+        const deviceData = getQueryParams();
+        const alertsCard = document.querySelector('.alerts-and-errors-card');
+        
+        if (!alertsCard) return;
+
+        // Show the card only if the device has an Error status
+        if (deviceData.status === 'Error') {
+            alertsCard.style.display = 'block';
+        } else {
+            alertsCard.style.display = 'none';
+        }
+    }
+
+    // Function to handle status banners visibility
+    function handleStatusBanners() {
+        if (!isIndex2Page()) return;
+
+        const deviceData = getQueryParams();
+        const maintenanceBanner = document.querySelector('.maintenance-banner');
+        const offlineBanner = document.querySelector('.offline-banner');
+        
+        if (!maintenanceBanner || !offlineBanner) return;
+
+        // Hide both banners initially
+        maintenanceBanner.style.display = 'none';
+        offlineBanner.style.display = 'none';
+
+        // Show appropriate banner based on status
+        if (deviceData.status === 'Maintenance') {
+            maintenanceBanner.style.display = 'block';
+        } else if (deviceData.status === 'Offline') {
+            offlineBanner.style.display = 'block';
+        }
+
+        // Add click handler for the "Turn off" button in maintenance banner
+        const turnOffButton = maintenanceBanner.querySelector('forge-button');
+        if (turnOffButton) {
+            turnOffButton.addEventListener('click', () => {
+                // Here you would typically make an API call to turn off maintenance mode
+                // For now, we'll just hide the banner
+                maintenanceBanner.style.display = 'none';
+            });
+        }
+    }
+
+    // Function to handle maintenance mode checkbox
+    function handleMaintenanceModeCheckbox() {
+        if (!isIndex2Page()) return;
+
+        const deviceData = getQueryParams();
+        const maintenanceCheckbox = document.querySelector('.checkbox-container forge-checkbox:has(+ .maintenance-mode-pin-text-field)');
+        
+        if (!maintenanceCheckbox) return;
+
+        // Check the checkbox if device is in maintenance mode
+        if (deviceData.status === 'Maintenance') {
+            maintenanceCheckbox.checked = true;
+            // Show the PIN field since checkbox is checked
+            const pinField = document.querySelector('.maintenance-mode-pin-text-field');
+            if (pinField) {
+                pinField.style.display = 'block';
+            }
+        } else {
+            maintenanceCheckbox.checked = false;
+            // Hide the PIN field since checkbox is unchecked
+            const pinField = document.querySelector('.maintenance-mode-pin-text-field');
+            if (pinField) {
+                pinField.style.display = 'none';
+            }
+        }
+    }
+
+    // Function to handle expansion panel toggle
+    function handleExpansionPanelToggle() {
+        const expansionPanel = document.querySelector('.alerts-and-errors-card forge-expansion-panel');
+        const toggleButton = document.querySelector('.alerts-and-errors-card forge-button');
+        
+        if (!expansionPanel || !toggleButton) return;
+
+        // Update button text based on panel state
+        function updateButtonText(isOpen) {
+            const buttonText = isOpen ? 'Hide alerts' : 'Show alerts';
+            const iconName = isOpen ? 'arrow_drop_up' : 'arrow_drop_down';
+            
+            // Preserve the button's theme and variant
+            toggleButton.innerHTML = `
+                ${buttonText}
+                <forge-icon external external-type="standard" name="${iconName}"></forge-icon>
+            `;
+        }
+
+        // Listen for the expansion panel's open state changes
+        expansionPanel.addEventListener('forge-expansion-panel-toggle', (event) => {
+            updateButtonText(event.detail.open);
+        });
+
+        // Handle button clicks
+        toggleButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent event bubbling
+            const currentState = expansionPanel.open;
+            expansionPanel.open = !currentState;
+            updateButtonText(!currentState);
+        });
+
+        // Initialize button text based on initial panel state
+        updateButtonText(expansionPanel.open);
+    }
+
+    // Call the functions when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        handleAlertsCardVisibility();
+        handleStatusBanners();
+        handleMaintenanceModeCheckbox();
+        handleExpansionPanelToggle();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lastCheckinSelect = document.getElementById('last-checkin-select');
+        const clearLastCheckin = document.getElementById('clear-last-checkin');
+        const statusSelect = document.getElementById('status-select');
+        const clearStatusSelect = document.getElementById('clear-status-select');
+
+        if (clearLastCheckin && lastCheckinSelect) {
+            clearLastCheckin.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lastCheckinSelect.value = '';
+                // Optionally, trigger a change event if your code listens for it
+                lastCheckinSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+        }
+
+        if (clearStatusSelect && statusSelect) {
+            clearStatusSelect.addEventListener('click', function(e) {
+                e.stopPropagation();
+                statusSelect.value = '';
+                statusSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+        }
+    });
+</script>
+
+</html>

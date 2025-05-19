@@ -1,0 +1,611 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--forge-theme-surface-dim);
+}
+
+.body-content {
+    max-width: 1000px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.drawer-content {
+    --forge-drawer-width: 350px;  
+}
+
+.drawer-card {
+    --forge-card-shape: 0px;
+    --forge-card-outline-style: none;
+    border-bottom: 1px solid var(--forge-theme-outline);
+    --forge-card-padding: 0rem 1rem;
+}
+
+
+.drawer-card-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    justify-content: space-between;
+}
+
+.drawer-card-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.drawer-card-header-icon {
+    color: var(--forge-theme-text-medium);
+}
+
+.drawer-label-values {
+    display: flex;
+    align-items: baseline;
+    gap: 3rem;
+}
+
+.drawer-label {
+    color: var(--forge-theme-text-medium);
+    margin: 0;
+}
+
+.drawer-value {
+    margin: 0;
+    text-align: left;
+}
+
+.drawer-label-values:last-child {
+    margin-bottom: 1.5rem;
+}
+
+/* Two-column layout styles */
+.drawer-info-grid {
+    display: grid;
+    grid-template-columns: minmax(140px, auto) 1fr;
+    gap: 10px 30px;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.hardware-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    /* margin-bottom: 2rem; */
+    /* border-bottom: 1px solid var(--forge-theme-outline); */
+    padding-bottom: 1rem;
+}
+
+.hardware-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hardware-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hardware-name p {
+    margin: 5px;
+}
+
+.hardware-icon {
+    color: var(--forge-theme-primary);
+    background-color: var(--forge-theme-primary-container-low);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.copy-icon {
+    color: var(--forge-theme-text-medium);
+    --forge-icon-size: 18px;
+}
+
+.hardware-name-text-id {
+    color: var(--forge-theme-text-medium);
+}
+
+.hardware-settings-card {
+    --forge-card-padding: 0rem 0rem 2rem 0rem;
+    margin-top:1rem;
+    margin-bottom: 2rem;
+}
+
+.settings-content {
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.settings-content p:first-child {
+    margin-top: 0px;
+    margin-bottom:3px;
+}
+
+.settings-content p:last-child {
+    margin: 0px;
+}
+
+.settings-content-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.settings-content-item-left {
+    width:300px;
+}
+
+.settings-content-item-right {
+    width: 50%;
+}
+
+.settings-content-item .forge-typography--subheading1 {
+    color: var(--forge-theme-text-medium);
+}
+
+.settings-content-item:last-child {
+    margin-bottom: 0px;
+}
+
+.settings-content-footer {
+    --forge-toolbar-padding: 2rem;
+    --forge-toolbar-padding-block: 0rem;
+}
+
+.hardware-settings-card-inline-message {
+    margin-bottom: 1rem;
+    display: none; /* Hide by default */
+}
+
+.hardware-settings-card-inline-message-error,
+.hardware-settings-card-inline-message-maintenance,
+.hardware-settings-card-inline-message-offline {
+    margin: 1rem 2rem;
+}
+
+.body-container {
+    margin:0 auto;
+    max-width: 1440px;
+    display: flex;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.left-panel {
+    width: 70%;
+}
+
+.right-panel {
+    width: 30%;
+}
+
+.right-panel-card {
+    --forge-card-padding: 0rem;
+    margin-bottom: 2em;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.accordion-header2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    border-bottom: 1px solid var(--forge-theme-outline);
+}
+
+.accordion-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accordion-header-icon {
+    color: var(--forge-theme-text-medium);
+}
+
+forge-accordion .drawer-info-grid {
+    padding: 0rem 1.5rem;
+}
+
+.checkbox-container {
+    border-bottom: 1px solid var(--forge-theme-outline);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-container:first-child {
+    padding-top: 0;
+}
+
+.checkbox-container:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.checkbox-container forge-text-field, .checkbox-container forge-select, .checkbox-container forge-chip-set {
+    width: 50%;
+}
+
+.chip-set-label {
+    margin: 0rem;
+    width: 100%;
+}
+
+.filters-applied-and-reset-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
+.filters-applied-and-reset-filters-container {
+    padding: 0rem;
+}
+
+.filter-row {
+    --forge-card-shape: 0px;
+    --forge-card-outline-style: none;
+    border-bottom: 1px solid var(--forge-theme-outline);
+    --forge-card-padding: 0rem 1rem 1rem 1rem; 
+}
+
+.filter-row p.forge-typography--label2 {
+    color: var(--forge-theme-text-medium);
+}
+
+.big {
+    flex-grow: 3;
+}
+
+.medium {
+    flex: 2;
+}
+
+.small {
+    flex: 1;
+}
+
+.title-and-clear {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.device-table-container {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.device-table-card {
+    --forge-card-padding: 0rem;
+}
+
+.table-header {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--forge-theme-outline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-search-field {
+    width: 350px;
+}
+
+.table-footer {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: right;
+}
+
+forge-toolbar a {
+    color: var(--forge-theme-text-high);
+}
+
+/* Styles for the table action buttons */
+.action-buttons {
+    display: flex;
+    gap: 22px;
+}
+
+/* Styles for the actions menu popover */
+.actions-menu {
+    min-width: 220px;
+    padding: 8px 0;
+}
+
+.actions-menu forge-list-item {
+    cursor: pointer;
+}
+
+.actions-menu forge-list-item:hover {
+    background-color: var(--forge-theme-surface-container-highest);
+}
+
+.actions-menu forge-icon {
+    color: var(--forge-theme-text-medium);
+}
+
+.actions-menu forge-list-item:hover forge-icon {
+    color: var(--forge-theme-primary);
+}
+
+.find-devices-card p.forge-typography--heading4 {
+    margin: 0px 0 1rem 0
+}
+
+.find-devices-card {
+    --forge-card-padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.forge-table-body__row:hover {
+    background-color: var(--forge-theme-primary-container-minimum) !important;
+}
+
+form {
+    --forge-field-background: white;
+}
+
+.find-devices-form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.device-empty-state img, .device-no-results-state img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.forge-table-expandable-row {
+    padding: 1rem;
+    background-color: var(--forge-theme-surface-container-minimum);
+}
+
+.forge-table-expandable-row forge-card {
+    --forge-card-padding: 0.5rem 2rem 1rem 1rem;
+}
+
+/* .card-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.inner-title {
+    margin: 0px 0px 1rem 0px;
+}
+
+.notes-card {
+    --forge-card-padding: 0rem;
+    max-height: 400px;
+}   
+
+.notes-card-inner {
+    overflow-y: auto;
+    max-height: 400px;
+    min-height: 400px;
+}
+
+.notes-card-footer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid var(--forge-theme-outline);
+}
+
+#add-note-btn {
+    width: fit-content;
+    margin-left: auto;
+}
+
+.maintenance-mode-pin-text-field,
+.video-visitation-select {
+    margin-top: 8px;
+    margin-left: 32px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.note-item {
+    position: relative;
+    padding: 1rem 3rem 1rem 1rem;
+    text-wrap: wrap;
+}
+
+.note-item:hover .note-action-btn {
+    display: block !important;
+}
+
+.note-item:hover {
+    background-color: var(--forge-theme-primary-container-minimum);
+}
+
+.note-action-btn {
+    position: absolute;
+    top: auto;
+    right: 5px;
+    display: none;
+}
+
+.device-form-card {
+    margin-bottom: 2rem;
+    --forge-card-padding: 1.5rem;
+}
+
+.device-form-card p {
+    margin-top: 0px;
+    margin-bottom: 1rem;
+}
+
+.alerts-and-errors-card {
+    --forge-card-padding: 0rem 1rem;
+    --forge-card-background: var(--forge-theme-error-container-minimum);
+    --forge-card-outline-color: var(--forge-theme-error-container);
+}
+
+.alerts-and-errors-card p, .alerts-and-errors-card forge-icon {
+    color: var(--forge-theme-error);
+}
+
+.alerts-and-errors-card ul {
+    color: var(--forge-theme-error);
+    line-height: 2rem;
+    border-top: 1px solid var(--forge-theme-error-container-low);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    font-size: 14px;
+}
+
+.last-checkin-time {
+    color: var(--forge-theme-error);
+}
+
+/* Additional styles for enhanced search and filter functionality */
+
+/* Make the search fields and status indicators more visually distinctive */
+.find-devices-form forge-text-field,
+.find-devices-form forge-autocomplete {
+  width: 100%;
+}
+
+/* Style the advanced search container for better visibility when expanded */
+.advanced-search-container {
+  padding-right: 284px;
+  margin-top: 16px;
+}
+
+.advanced-search-container.visible {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Improve the visibility of active filters */
+.filters-applied-and-reset-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+/* Style for the drawer card header */
+.drawer-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title-and-clear {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+/* Style for the expanded row content */
+.forge-table-expandable-row {
+  padding: 8px 16px 16px 16px;
+  background-color: var(--forge-theme-surface-container-minimum);
+}
+
+.forge-table-expandable-row forge-card {
+  margin-top: 8px;
+}
+
+.inner-title {
+  padding: 0px 0px 8px 0px;
+  margin: 0;
+}
+
+/* Status badge styling */
+forge-table tbody tr forge-badge {
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* Improve visibility of selected rows */
+forge-table tbody tr.selected {
+  background-color: var(--forge-theme-primary-container-minimum) !important;
+}
+
+/* Style the "No results" and empty states */
+.device-empty-state img,
+.device-no-results-state img {
+  max-width: 200px;
+  margin-bottom: 24px;
+}
+
+/* Device actions buttons container */
+.device-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Make the filter drawer more visually consistent */
+#filter-drawer .filters-applied-and-reset-filters-container {
+  padding: 0 16px 16px 16px;
+}
+
+#filter-drawer .filter-row {
+  margin: 0 16px 16px 16px;
+}
+
+#filter-drawer forge-expansion-panel {
+  overflow: hidden;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 1200px) {
+  .find-devices-form form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .card-inner {
+    grid-template-columns: 1fr;
+  }
+  
+  .device-action-buttons {
+    margin-bottom: 16px;
+  }
+  
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.find-devices-form {
+    padding: 0.5rem 1.5rem 2rem 1.5rem;
+}

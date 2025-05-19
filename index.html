@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/forge.css" />
+    <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/css/tyler-font.css" />
+</head>
+
+<body>
+    <forge-dialog id="reboot-dialog" label="Rebooting Device" description="Please wait while the device reboots">
+        <forge-scaffold>
+            <div slot="body" style="display: flex; flex-direction: column; align-items: center; padding: 24px;">
+                <forge-circular-progress track indeterminate style="margin:16px 0px; --forge-circular-progress-size: 100px;"></forge-circular-progress>
+                <p class="forge-typography--heading5">Rebooting devices...</p>
+            </div>
+        </forge-scaffold>
+    </forge-dialog>
+    <style>
+        forge-dialog:not([fullscreen]) forge-scaffold {
+            --forge-scaffold-width: 400px;
+        }
+        forge-dialog forge-scaffold {
+            height: auto;
+        }
+        forge-dialog forge-scaffold h2 {
+            margin: 0;
+        }
+        .advanced-search-container {
+            display: none;
+            margin-top: 16px;
+        }
+        .advanced-search-container.visible {
+            display: block;
+        }
+    </style>
+    <forge-scaffold class="scaffold-example" viewport>
+        <div slot="header">
+            <forge-app-bar title-text="Corrections Solutions" theme-mode="scoped">
+                <forge-app-bar-menu-button slot="start"></forge-app-bar-menu-button>
+                <forge-icon slot="logo" external external-type="custom" name="tyler_talking_t_logo"></forge-icon>
+                <forge-app-bar-help-button slot="end"></forge-app-bar-help-button>
+                <forge-app-bar-notification-button slot="end"></forge-app-bar-notification-button>
+                <forge-app-bar-app-launcher-button slot="end" allow-more="true"></forge-app-bar-app-launcher-button>
+                <forge-app-bar-profile-button slot="end" avatar-text="First Last" full-name="First Last"
+                    email="first.last@tylertech.com"></forge-app-bar-profile-button>
+            </forge-app-bar>
+        </div>
+        <div slot="body-header">
+            <forge-toolbar>
+                <div slot="start">
+                    <p class="forge-typography--subheading3">Kiosks and devices</p>
+                </div>
+                
+            </forge-toolbar>
+        </div>
+        <forge-mini-drawer slot="body-left" hover id="mini-drawer">
+            <aside>
+                <forge-list navlist>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="home"></forge-icon>
+                        <a href="javascript: void(0)">Home</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="police_badge"></forge-icon>
+                        <a href="javascript: void(0)">Jails</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="warehouse"></forge-icon>
+                        <a href="javascript: void(0)">Warehouses</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="inventory"></forge-icon>
+                        <a href="javascript: void(0)">Order / Receive Inventory</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="menu"></forge-icon>
+                        <a href="javascript: void(0)">Menu</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="shopping_cart"></forge-icon>
+                        <a href="javascript: void(0)">Open Orders</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start"
+                            name="assignment_return"></forge-icon>
+                        <a href="javascript: void(0)">Returns</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="people"></forge-icon>
+                        <a href="javascript: void(0)">Inmates</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="campaign"></forge-icon>
+                        <a href="javascript: void(0)">Broadcasts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="account_balance"></forge-icon>
+                        <a href="javascript: void(0)">Trust Accounts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="assessment"></forge-icon>
+                        <a href="javascript: void(0)">Reports</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="videocam"></forge-icon>
+                        <a href="javascript: void(0)">Video Visits</a>
+                    </forge-list-item>
+                    <forge-list-item selected>
+                        <forge-icon external external-type="standard" slot="start" name="devices"></forge-icon>
+                        <a href="javascript: void(0)">Kiosks and devices</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="dock"></forge-icon>
+                        <a href="javascript: void(0)">Docking Stations</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="voicemail"></forge-icon>
+                        <a href="javascript: void(0)">Voicemail</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="link"></forge-icon>
+                        <a href="javascript: void(0)">Links</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="flag"></forge-icon>
+                        <a href="javascript: void(0)">Billboard</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="article"></forge-icon>
+                        <a href="javascript: void(0)">News</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="update"></forge-icon>
+                        <a href="javascript: void(0)">Update Notes</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start"
+                            name="confirmation_number"></forge-icon>
+                        <a href="javascript: void(0)">Ticket System</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="description"></forge-icon>
+                        <a href="javascript: void(0)">Forms</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="translate"></forge-icon>
+                        <a href="javascript: void(0)">Language Packs</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="build"></forge-icon>
+                        <a href="javascript: void(0)">Tools</a>
+                    </forge-list-item>
+                </forge-list>
+            </aside>
+        </forge-mini-drawer>
+        <div slot="body">
+            <forge-scaffold>
+                <div slot="body">
+                    <div class="device-table-container">
+                      
+                        <forge-card raised class="device-table-card">
+                            <div class="find-devices-form">
+                                <p class="forge-typography--heading4">Search for kiosks and devices</p>
+                                <form style="display: flex; gap: 16px; align-items: center;">
+                                    <forge-autocomplete class="facility-autocomplete" style="flex: 2;">
+                                        <forge-text-field show-clear popover-icon>
+                                            <input type="text" id="state" />
+                                            <label for="state" aria-label="choose state">Filter by facility</label>
+                                        </forge-text-field>
+                                    </forge-autocomplete>
+                                    <forge-autocomplete class="device-type-autocomplete" style="flex: 2;">
+                                        <forge-text-field show-clear popover-icon>
+                                            <input type="text" />
+                                            <label>Filter by device type</label>
+                                        </forge-text-field>
+                                    </forge-autocomplete>
+                                    <forge-text-field show-clear style="flex: 2;">
+                                        <input type="text" placeholder="Search for kiosk ID" />
+                                    </forge-text-field>
+                                    <forge-text-field show-clear style="flex: 2;">
+                                        <input type="text" placeholder="Search for device name" />
+                                    </forge-text-field style="flex:1">
+                                    <forge-button type="submit" variant="raised">
+                                        Search
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        Advanced search
+                                        <forge-icon external external-type="standard" name="arrow_drop_down"></forge-icon>
+                                    </forge-button>
+                                    
+                                </form>
+                                <div class="advanced-search-container">
+                                    <forge-stack inline stretch alignment="center">
+                                        <forge-text-field show-clear>
+                                            <label>Search for kiosk location</label>
+                                        <input type="text" />
+                                    </forge-text-field>
+                                    <forge-text-field show-clear>
+                                            <label>Search for allowed locations</label>
+                                        <input type="text" />
+                                    </forge-text-field>
+                                        <div style="position: relative; display: inline-block;">
+                                            <forge-select aria-label="Label" label="Sort by last check-in" id="last-checkin-select">
+                                                <forge-option value="1">Oldest check-in</forge-option>
+                                                <forge-option value="2">Most recent check-in</forge-option>
+                                            </forge-select>
+                                            <forge-icon-button id="clear-last-checkin" class="clear-select-btn" style="position: absolute; top: 0px; right: 28px; z-index: 2; --forge-icon-size: 18px; display: none;">
+                                                <forge-icon name="close"></forge-icon>
+                                            </forge-icon-button>
+                                        </div>
+                                        <div style="position: relative; display: inline-block;">
+                                            <forge-select aria-label="Label" label="Filter by status" id="status-select">
+                                                <forge-option value="1">Error</forge-option>
+                                                <forge-option value="2">Maintenance</forge-option>
+                                                <forge-option value="3">Offline</forge-option>
+                                                <forge-option value="4">Online</forge-option>
+                                            </forge-select>
+                                            <forge-icon-button id="clear-status-select" class="clear-select-btn" style="position: absolute; top: 0px; right: 28px; z-index: 2; --forge-icon-size: 18px; display: none;">
+                                                <forge-icon name="close"></forge-icon>
+                                            </forge-icon-button>
+                                        </div>
+                                    </forge-stack>
+                                </div>
+                            </div>
+                            <div class="table-header">
+                                
+                                <p class="forge-typography--subheading2 device-count" style="margin:10px 0px; flex:1;">0 devices found</p>
+                                <div class="action-buttons device-action-buttons" style="display: none; margin-right: 22px;">
+                                    <forge-button variant="text" id="reboot-button">
+                                        <forge-icon external external-type="standard" name="sync" slot="start"></forge-icon>
+                                        Reboot
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="cloud_sync" slot="start"></forge-icon>
+                                        Restart software
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="application_cog" slot="start"></forge-icon>
+                                        Configure
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="access_point_off" slot="start"></forge-icon>
+                                        Disable
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="wrench" slot="start"></forge-icon>
+                                         Maintenance mode
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="office_building_marker" slot="start"></forge-icon>
+                                        Apply locations
+                                    </forge-button>
+                                </div>
+                                <forge-button variant="outlined" id="filter-devices-button" style="display: none;">
+                                    <forge-icon external external-type="standard" name="filter_list" slot="start"></forge-icon>
+                                    Filter devices
+                                </forge-button>
+                            </div>
+                            <div class="device-empty-state" style="padding: 48px 0; text-align: center; color: var(--forge-theme-text-medium);">
+                                <img src="https://cdn.forge.tylertech.com/v1/images/spot/search-lists-spot.svg" alt="" />
+                                <div class="forge-typography--heading2" style="margin-bottom: 8px;">Search for kiosks and devices</div>
+                                <div class="forge-typography--body1">Use the find kiosks and devices form above to search</div>
+                            </div>
+                            <div class="device-no-results-state" style="padding: 48px 0; text-align: center; color: var(--forge-theme-text-medium); display: none;">
+                                <img src="https://cdn.forge.tylertech.com/v1/images/spot/no-search-results-spot.svg" alt="" />
+                                <div class="forge-typography--heading2" style="margin-bottom: 8px;">No devices found</div>
+                                <div class="forge-typography--body1">Try adjusting your search criteria</div>
+                            </div>
+                            <forge-table id="device-table" allow-row-click="true" style="display:none;"></forge-table>
+                            <div class="table-footer" style="display:none;">
+                                <forge-paginator id="device-table-paginator" first-last page-size="20" page-index="0"></forge-paginator>
+                            </div>
+                        </forge-card>                         
+                    </div>
+                </div>
+            </forge-scaffold>
+
+        </div>
+        <!-- Template for expanded row content -->
+        
+        <forge-modal-drawer slot="right" id="filter-drawer" class="drawer-content" open="false" direction="right">
+            <forge-toolbar slot="header">
+                <div slot="start">
+                    <p class="forge-typography--subheading3">Filters</p>
+                </div>
+                <div slot="end">
+                    <forge-icon-button id="close-filter-drawer" aria-label="Close filter drawer">
+                        <forge-icon external external-type="standard" name="close"></forge-icon>
+                    </forge-icon-button>
+                </div>
+            </forge-toolbar>
+            <aside>
+
+                <div class="filters-applied-and-reset-filters-container">
+                    <div class="filters-applied-and-reset-filters">
+                        <p class="forge-typography--label2 filters-applied-label">0 filters applied</p>
+                        <forge-button variant="text" class="reset-filters-button">
+                            Reset filters
+                        </forge-button>
+                    </div>
+                    <forge-card class="filter-row">
+                        <forge-expansion-panel open>
+                            <div slot="header" class="drawer-card-header">
+                                <div class="title-and-clear">
+                                <p class="forge-typography--label2">Facility</p>
+                                <forge-button variant="text" class="clear-filter-button">Clear</forge-button>
+                            </div>
+                                <forge-open-icon role="button" tabindex="0" class="drawer-card-open-icon"></forge-open-icon>
+                            </div>
+
+                            <forge-autocomplete class="facility-autocomplete">
+                                <forge-text-field show-clear popover-icon>
+                                    <input type="text" id="state" />
+                                    <label for="state" aria-label="choose state">Select facility</label>
+                                </forge-text-field>
+                            </forge-autocomplete>
+                        </forge-expansion-panel>
+                    </forge-card>
+                </div>
+
+            </aside>
+            <forge-toolbar inverted slot="footer">
+                <div slot="end">
+                    <forge-button full-width variant="raised" class="apply-filters-button">
+                        Apply filters
+                    </forge-button>
+                </div>
+            </forge-toolbar>
+        </forge-modal-drawer>
+    </forge-scaffold>
+    <script src="script.js"></script>
+
+    <style>
+        forge-dialog:not([fullscreen]) forge-scaffold {
+            --forge-scaffold-width: 400px;
+        }
+        forge-dialog forge-scaffold {
+            height: auto;
+        }
+        forge-dialog forge-scaffold h2 {
+            margin: 0;
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only run this on index.html
+      if (!window.location.pathname.endsWith('index.html')) return;
+
+      const lastCheckinSelect = document.getElementById('last-checkin-select');
+      const clearLastCheckin = document.getElementById('clear-last-checkin');
+      const statusSelect = document.getElementById('status-select');
+      const clearStatusSelect = document.getElementById('clear-status-select');
+
+      function updateClearIcon(select, clearBtn) {
+        if (select && clearBtn) {
+          clearBtn.style.display = select.value ? '' : 'none';
+        }
+      }
+
+      if (lastCheckinSelect && clearLastCheckin) {
+        // Initial state
+        updateClearIcon(lastCheckinSelect, clearLastCheckin);
+
+        lastCheckinSelect.addEventListener('change', function() {
+          updateClearIcon(lastCheckinSelect, clearLastCheckin);
+        });
+
+        clearLastCheckin.addEventListener('click', function(e) {
+          e.stopPropagation();
+          lastCheckinSelect.value = '';
+          lastCheckinSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          updateClearIcon(lastCheckinSelect, clearLastCheckin);
+        });
+      }
+
+      if (statusSelect && clearStatusSelect) {
+        // Initial state
+        updateClearIcon(statusSelect, clearStatusSelect);
+
+        statusSelect.addEventListener('change', function() {
+          updateClearIcon(statusSelect, clearStatusSelect);
+        });
+
+        clearStatusSelect.addEventListener('click', function(e) {
+          e.stopPropagation();
+          statusSelect.value = '';
+          statusSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          updateClearIcon(statusSelect, clearStatusSelect);
+        });
+      }
+    });
+    </script>
+
+</body>
+
+</html>

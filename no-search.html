@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiosks and Devices</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/forge.css" />
+    <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/css/tyler-font.css" />
+</head>
+
+<body>
+    <forge-dialog id="reboot-dialog" label="Rebooting Device" description="Please wait while the device reboots">
+        <forge-scaffold>
+            <div slot="body" style="display: flex; flex-direction: column; align-items: center; padding: 24px;">
+                <forge-circular-progress track indeterminate style="margin:16px 0px; --forge-circular-progress-size: 100px;"></forge-circular-progress>
+                <p class="forge-typography--heading5">Rebooting devices...</p>
+            </div>
+        </forge-scaffold>
+    </forge-dialog>
+    <style>
+        forge-dialog:not([fullscreen]) forge-scaffold {
+            --forge-scaffold-width: 400px;
+        }
+        forge-dialog forge-scaffold {
+            height: auto;
+        }
+        forge-dialog forge-scaffold h2 {
+            margin: 0;
+        }
+    </style>
+    <forge-scaffold class="scaffold-example">
+        <div slot="header">
+            <forge-app-bar title-text="Corrections Solutions" theme-mode="scoped">
+                <forge-app-bar-menu-button slot="start"></forge-app-bar-menu-button>
+                <forge-icon slot="logo" external external-type="custom" name="tyler_talking_t_logo"></forge-icon>
+                <forge-app-bar-help-button slot="end"></forge-app-bar-help-button>
+                <forge-app-bar-notification-button slot="end"></forge-app-bar-notification-button>
+                <forge-app-bar-app-launcher-button slot="end" allow-more="true"></forge-app-bar-app-launcher-button>
+                <forge-app-bar-profile-button slot="end" avatar-text="First Last" full-name="First Last"
+                    email="first.last@tylertech.com"></forge-app-bar-profile-button>
+            </forge-app-bar>
+        </div>
+        <div slot="body-header">
+            <forge-toolbar>
+                <div slot="start">
+                    <p class="forge-typography--subheading3">Kiosks and devices</p>
+                </div>
+            </forge-toolbar>
+        </div>
+        <forge-mini-drawer slot="body-left" hover id="mini-drawer">
+            <aside>
+                <forge-list navlist>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="home"></forge-icon>
+                        <a href="javascript: void(0)">Home</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="police_badge"></forge-icon>
+                        <a href="javascript: void(0)">Jails</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start" name="warehouse"></forge-icon>
+                        <a href="javascript: void(0)">Warehouses</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="inventory"></forge-icon>
+                        <a href="javascript: void(0)">Order / Receive Inventory</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="menu"></forge-icon>
+                        <a href="javascript: void(0)">Menu</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="shopping_cart"></forge-icon>
+                        <a href="javascript: void(0)">Open Orders</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="extended" slot="start"
+                            name="assignment_return"></forge-icon>
+                        <a href="javascript: void(0)">Returns</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="people"></forge-icon>
+                        <a href="javascript: void(0)">Inmates</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="campaign"></forge-icon>
+                        <a href="javascript: void(0)">Broadcasts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="account_balance"></forge-icon>
+                        <a href="javascript: void(0)">Trust Accounts</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="assessment"></forge-icon>
+                        <a href="javascript: void(0)">Reports</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="videocam"></forge-icon>
+                        <a href="javascript: void(0)">Video Visits</a>
+                    </forge-list-item>
+                    <forge-list-item selected>
+                        <forge-icon external external-type="standard" slot="start" name="devices"></forge-icon>
+                        <a href="javascript: void(0)">Kiosks and devices</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="dock"></forge-icon>
+                        <a href="javascript: void(0)">Docking Stations</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="voicemail"></forge-icon>
+                        <a href="javascript: void(0)">Voicemail</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="link"></forge-icon>
+                        <a href="javascript: void(0)">Links</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="flag"></forge-icon>
+                        <a href="javascript: void(0)">Billboard</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="article"></forge-icon>
+                        <a href="javascript: void(0)">News</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="update"></forge-icon>
+                        <a href="javascript: void(0)">Update Notes</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start"
+                            name="confirmation_number"></forge-icon>
+                        <a href="javascript: void(0)">Ticket System</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="description"></forge-icon>
+                        <a href="javascript: void(0)">Forms</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="translate"></forge-icon>
+                        <a href="javascript: void(0)">Language Packs</a>
+                    </forge-list-item>
+                    <forge-list-item>
+                        <forge-icon external external-type="standard" slot="start" name="build"></forge-icon>
+                        <a href="javascript: void(0)">Tools</a>
+                    </forge-list-item>
+                </forge-list>
+            </aside>
+        </forge-mini-drawer>
+        <div slot="body">
+            <forge-scaffold>
+                <div slot="body">
+                    <div class="device-table-container">
+                        <forge-card raised class="device-table-card">
+                            <div class="table-header">
+                                <p class="forge-typography--subheading2 device-count" style="margin:10px 0px; flex:1;">Loading devices...</p>
+                                <div class="action-buttons device-action-buttons" style="display: none; margin-right: 22px;">
+                                    <forge-button variant="text" id="reboot-button">
+                                        <forge-icon external external-type="standard" name="sync" slot="start"></forge-icon>
+                                        Reboot
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="cloud_sync" slot="start"></forge-icon>
+                                        Restart software
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="application_cog" slot="start"></forge-icon>
+                                        Configure
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="access_point_off" slot="start"></forge-icon>
+                                        Disable
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="wrench" slot="start"></forge-icon>
+                                         Maintenance mode
+                                    </forge-button>
+                                    <forge-button variant="text">
+                                        <forge-icon external external-type="extended" name="office_building_marker" slot="start"></forge-icon>
+                                        Apply locations
+                                    </forge-button>
+                                </div>
+                                
+                            </div>
+                            <div class="device-empty-state" style="padding: 48px 0; text-align: center; color: var(--forge-theme-text-medium); display: none;">
+                                <img src="https://cdn.forge.tylertech.com/v1/images/spot/search-lists-spot.svg" alt="" />
+                                <div class="forge-typography--heading2" style="margin-bottom: 8px;">Search for kiosks and devices</div>
+                                <div class="forge-typography--body1">Use the find kiosks and devices form above to search</div>
+                            </div>
+                            <div class="device-no-results-state" style="padding: 48px 0; text-align: center; color: var(--forge-theme-text-medium); display: none;">
+                                <img src="https://cdn.forge.tylertech.com/v1/images/spot/no-search-results-spot.svg" alt="" />
+                                <div class="forge-typography--heading2" style="margin-bottom: 8px;">No devices found</div>
+                                <div class="forge-typography--body1">Try adjusting your search criteria</div>
+                            </div>
+                            <forge-table id="device-table"></forge-table>
+                            <div class="table-footer">
+                                <forge-paginator id="device-table-paginator" first-last page-size="20" page-index="0"></forge-paginator>
+                            </div>
+                        </forge-card>                         
+                    </div>
+                </div>
+            </forge-scaffold>
+        </div>
+        
+        <forge-drawer slot="body-right" id="filter-drawer" class="drawer-content" direction="right" style="overflow-y: scroll;">
+            <forge-toolbar slot="header">
+                <div slot="start">
+                    <p class="forge-typography--subheading3">Filters</p>
+                </div>
+                
+            </forge-toolbar>
+            <aside>
+                <div class="filters-applied-and-reset-filters-container">
+                    <div class="filters-applied-and-reset-filters">
+                        <p class="forge-typography--label2 filters-applied-label">0 filters applied</p>
+                        <forge-button variant="text" class="reset-filters-button">
+                            Reset filters
+                        </forge-button>
+                    </div>
+                    <forge-card class="filter-row">
+                        <forge-expansion-panel open>
+                            <div slot="header" class="drawer-card-header">
+                                <div class="title-and-clear">
+                                <p class="forge-typography--label2">Facility</p>
+                                <forge-button variant="text" class="clear-filter-button">Clear</forge-button>
+                            </div>
+                                <forge-open-icon role="button" tabindex="0" class="drawer-card-open-icon"></forge-open-icon>
+                            </div>
+
+                            <forge-autocomplete class="facility-autocomplete">
+                                <forge-text-field show-clear popover-icon>
+                                    <input type="text" id="state" />
+                                    <label for="state" aria-label="choose state">Select facility</label>
+                                </forge-text-field>
+                            </forge-autocomplete>
+                        </forge-expansion-panel>
+                    </forge-card>
+                    <forge-card class="filter-row">
+                        <forge-expansion-panel open>
+                            <div slot="header" class="drawer-card-header">
+                                <div class="title-and-clear">
+                                <p class="forge-typography--label2">Device type</p>
+                                <forge-button variant="text" class="clear-filter-button">Clear</forge-button>
+                            </div>
+                                <forge-open-icon role="button" tabindex="0" class="drawer-card-open-icon"></forge-open-icon>
+                            </div>
+
+                            <forge-autocomplete class="device-type-autocomplete">
+                                <forge-text-field show-clear popover-icon>
+                                    <input type="text" />
+                                    <label>Select device type</label>
+                                </forge-text-field>
+                            </forge-autocomplete>
+                        </forge-expansion-panel>
+                    </forge-card>
+                    <forge-card class="filter-row">
+                        <forge-expansion-panel open>
+                            <div slot="header" class="drawer-card-header">
+                                <div class="title-and-clear">
+                                <p class="forge-typography--label2">Kiosk ID</p>
+                                <forge-button variant="text" class="clear-filter-button">Clear</forge-button>
+                            </div>
+                                <forge-open-icon role="button" tabindex="0" class="drawer-card-open-icon"></forge-open-icon>
+                            </div>
+
+                            <forge-text-field>
+                                <input type="text" placeholder="Search for kiosk ID" />
+                            </forge-text-field>
+                        </forge-expansion-panel>
+                    </forge-card>
+                    <forge-card class="filter-row">
+                        <forge-expansion-panel open>
+                            <div slot="header" class="drawer-card-header">
+                                <div class="title-and-clear">
+                                <p class="forge-typography--label2">Device name</p>
+                                <forge-button variant="text" class="clear-filter-button">Clear</forge-button>
+                            </div>
+                                <forge-open-icon role="button" tabindex="0" class="drawer-card-open-icon"></forge-open-icon>
+                            </div>
+
+                            <forge-text-field>
+                                <input type="text" placeholder="Search for device name" />
+                            </forge-text-field>
+                        </forge-expansion-panel>
+                    </forge-card>
+                </div>
+            </aside>
+            <!-- No footer toolbar here -->
+        </forge-drawer>
+    </forge-scaffold>
+    
+    <!-- Script tag to ensure data loads reliably -->
+    <script>
+        // Direct script to ensure table data loads without depending on footer toolbar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to table elements
+            const deviceTable = document.getElementById('device-table');
+            const paginator = document.getElementById('device-table-paginator');
+            const deviceCountElement = document.querySelector('.device-count');
+            const emptyState = document.querySelector('.device-empty-state');
+            const noResultsState = document.querySelector('.device-no-results-state');
+            const tableFooter = document.querySelector('.table-footer');
+
+            // Initialize table directly without waiting
+            initializeTable();
+
+            function initializeTable() {
+                // Generate sample data if it doesn't exist
+                if (!window.allDeviceData) {
+                    createSampleData();
+                }
+
+                // Configure table
+                deviceTable.allowRowClick = true;
+                deviceTable.select = true;
+                deviceTable.multiselect = true;
+                deviceTable.selectKey = 'kioskId';
+
+                // Column configuration
+                deviceTable.columnConfigurations = [
+                    { header: 'Kiosk ID', property: 'kioskId', sortable: true },
+                    { header: 'Facility', property: 'facility', sortable: true, initialSort: true },
+                    { header: 'Device type', property: 'deviceType', sortable: true },
+                    { header: 'Hardware type', property: 'hardwareType', sortable: true },
+                    { header: 'Device name', property: 'deviceName', sortable: true },
+                    { header: 'Status', property: 'status', sortable: true },
+                    {
+                        align: 'center',
+                        header: '',
+                        template: getExpandRowColumnTemplate,
+                        cellStyle: { width: '48px' }
+                    }
+                ];
+
+                // Sort data - Error status first, then by facility
+                window.allDeviceData.sort((a, b) => {
+                    if (a.status === 'Error' && b.status !== 'Error') return -1;
+                    if (a.status !== 'Error' && b.status === 'Error') return 1;
+                    return a.facility.localeCompare(b.facility);
+                });
+
+                // Setup paginator
+                paginator.total = window.allDeviceData.length;
+                paginator.pageIndex = 0;
+
+                // Load first page
+                updateTablePage(0, paginator.pageSize);
+
+                // Update device count
+                deviceCountElement.textContent = `${window.allDeviceData.length} device${window.allDeviceData.length === 1 ? '' : 's'} found`;
+
+                // Show table, hide empty states
+                emptyState.style.display = 'none';
+                noResultsState.style.display = 'none';
+                deviceTable.style.display = '';
+                tableFooter.style.display = '';
+
+                // Event listeners
+                paginator.addEventListener('forge-paginator-change', (event) => {
+                    updateTablePage(event.detail.pageIndex, event.detail.pageSize);
+                });
+
+                deviceTable.addEventListener('forge-table-sort', () => {
+                    setTimeout(applyStatusBadges, 50);
+                });
+
+                deviceTable.addEventListener('forge-table-row-click', (event) => {
+                    if (event.detail.originalEvent?.target?.closest('forge-icon-button')) return;
+                    const rowData = event.detail.data;
+                    if (rowData) {
+                        const queryParams = new URLSearchParams(Object.entries(rowData));
+                        window.location.href = `index2.html?${queryParams.toString()}`;
+                    }
+                });
+
+                deviceTable.addEventListener('forge-table-select', () => {
+                    updateActionButtonsVisibility();
+                });
+
+                // Initialize action buttons visibility
+                updateActionButtonsVisibility();
+            }
+
+            function updateTablePage(pageIndex, pageSize) {
+                const startIdx = pageIndex * pageSize;
+                const endIdx = startIdx + pageSize;
+                deviceTable.data = window.allDeviceData.slice(startIdx, endIdx);
+                setTimeout(applyStatusBadges, 50);
+            }
+
+            function applyStatusBadges() {
+                const rows = Array.from(deviceTable.querySelectorAll('tbody tr'));
+                rows.forEach(row => {
+                    const statusCell = row.cells[6]; // Adjust for checkbox column
+                    if (statusCell && statusCell.textContent) {
+                        const status = statusCell.textContent.trim();
+                        
+                        // Set row styles based on status
+                        if (status === 'Error') {
+                            row.style.backgroundColor = 'var(--forge-theme-error-container-minimum)';
+                            Array.from(row.cells).forEach(cell => { cell.style.color = ''; });
+                        } else if (status === 'Offline') {
+                            row.style.backgroundColor = 'var(--forge-theme-surface-dim)';
+                            Array.from(row.cells).forEach(cell => { 
+                                cell.style.color = 'var(--forge-theme-text-medium)'; 
+                            });
+                        } else {
+                            row.style.backgroundColor = '';
+                            Array.from(row.cells).forEach(cell => { cell.style.color = ''; });
+                        }
+                        
+                        // Apply badge
+                        const themeMap = {
+                            'Online': 'success',
+                            'Error': 'error',
+                            'Maintenance': 'warning',
+                            'Offline': 'info-secondary'
+                        };
+                        statusCell.innerHTML = `<forge-badge theme="${themeMap[status] || 'default'}" >${status}</forge-badge>`;
+                    }
+                });
+            }
+
+            function updateActionButtonsVisibility() {
+                const actionButtons = document.querySelector('.device-action-buttons');
+                const selectedRows = deviceTable.getSelectedRows();
+                if (selectedRows && selectedRows.length > 0) {
+                    actionButtons.style.display = '';
+                } else {
+                    actionButtons.style.display = 'none';
+                }
+            }
+
+            function getExpandRowColumnTemplate(rowIndex) {
+                const iconButton = document.createElement('forge-icon-button');
+                iconButton.tabIndex = -1;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.style.background = 'none';
+                button.style.border = 'none';
+                button.style.cursor = 'pointer';
+                const icon = document.createElement('forge-icon');
+                icon.name = 'keyboard_arrow_down';
+                icon.external = true;
+                button.appendChild(icon);
+                button.addEventListener('click', evt => {
+                    evt.stopPropagation();
+                    if (deviceTable.isRowExpanded(rowIndex)) {
+                        deviceTable.collapseRow(rowIndex);
+                        icon.name = 'keyboard_arrow_down';
+                    } else {
+                        deviceTable.expandRow(rowIndex, buildRowTemplate(rowIndex));
+                        icon.name = 'keyboard_arrow_up';
+                    }
+                });
+                iconButton.appendChild(button);
+                return iconButton;
+            }
+
+            function buildRowTemplate(rowIndex) {
+                return `
+                    <div class="forge-table-expandable-row">
+                    <forge-card outlined>
+                        <h2 class="forge-typography--heading2 inner-title">Device Details</h2>
+                        <div class="card-inner">
+                        <forge-label-value>
+                            <span slot="label">Last Online</span>
+                            <span slot="value">${new Date().toLocaleString()}</span>
+                        </forge-label-value>
+                        <forge-label-value>
+                            <span slot="label">Software Version</span>
+                            <span slot="value">v2.1.4</span>
+                        </forge-label-value>
+                        <forge-label-value>
+                            <span slot="label">IP Address</span>
+                            <span slot="value">192.168.1.1</span>
+                        </forge-label-value>
+                        </div>
+                    </forge-card>
+                    </div>
+                `;
+            }
+
+            function createSampleData() {
+                // Sample value pools
+                const kioskIds = Array.from({length: 50}, (_, i) => (23000 + i).toString());
+                const deviceTypes = ['Lobby', 'Booking', 'Cart', 'Inmate', 'Video Visit - Remote', 'Charging Station', 'Vending Machine'];
+                const hardwareTypes = ['', 'Windows Kiosk', 'Windows Tablet', 'Android'];
+                const deviceNames = [
+                    'DBOVS-AAGFV', 'DBOVS-AAGGK', 'DBOVS-AAGGQ', 'DBOVS-AAGHF', 'DBOVS-AAGHN', 
+                    'DBOVS-AAGIH', 'DBOVS-AAGJK', 'DBOVS-AAGJX', 'DBOVS-AAGKL', 'DBOVS-AAGKS',
+                    '707 MIDDLE LEFT', '618 Middle', '506 Left', 'Visitation 6'
+                ];
+                const facilityNames = [
+                    'Acadia Parish Jail, LA',
+    'Adams County, MS',
+    'Allen County, KY',
+    'Angelina County, TX',
+    'Ascension Parish, LA',
+    'Assumption Parish, LA',
+    'Atascosa County, TX',
+    'Atchison County Sheriffs Office, KS',
+    'ATEF, AL 1178',
+    'Autauga County, AL 8128',
+    'Avoyelles Parish Cottonport Jail, LA',
+    'Avoyelles Parish Main Jail, LA',
+    'Baca County Jail, CO',
+    'Bacon County, GA',
+    'Bahamas, BA',
+    'Bailey County, TX',
+    'Barren County, KY',
+    'Bell County, KY',
+    'Bergen County Jail, NJ',
+    'Blount County, AL',
+    'Bluebonnet Detention Center, TX',
+    'Bosque County, TX',
+    'Bourbon County, KY',
+    'Boyd County, KY',
+    'Boyle County, KY',
+    'Brewster County, TX',
+    'Butler County, AL 3321',
+    'Butler County, KY - Inmate Trust',
+    'Calcasieu Parish, LA',
+    'Caldwell County, TX',
+    'Calloway County, KY',
+    'Cameron County, TX',
+    'Carter County, KY',
+    'Casey County, KY NEW',
+    'Cass County Sheriffs Office, IN',
+    'Cedar County, MO',
+    'Central Valley Annex, CA',
+    'Chambers County Detention Center, AL',
+    'Chambers County Jail, TX',
+    'Chase County, KS',
+    'Chaves County, NM',
+    'Childress County, TX',
+    'Claiborne County, TN',
+    'Clark County, IN',
+    'Clark County, KY',
+    'Clarke County, AL 8156',
+    'Clatsop County Sheriff\'s Office, OR',
+    'Clayton County, GA',
+    'Cobb County Office - Fingerprint',
+    'Cobb County Office - One, GA',
+    'Cobb County Special - Two, GA',
+    'Coffee County, TN',
+    'Coleman County Jail, TX',
+    'Conecuh County, AL 8126',
+    'Coosa County, AL',
+    'Creek County, OK',
+    'Crenshaw County, AL 3860',
+    'Curry County Detention Center, NM',
+    'Curry County Jail - O/I, OR',
+    'Dale County, AL',
+    'Danville Juvenile Detention Center, VA',
+    'Davidson County, TN (CDF/MCC) - Resource Project',
+    'Davidson County, TN (CDM/DDC) - Resource Project',
+    'Daviess County Detention Center, KY',
+    'Deaf Smith County, TX',
+    'Decatur County, KS',
+    'Denton County Jail, TX',
+    'Dismas Charities, KY',
+    'Dunn County Jail, WI',
+    'East Hidalgo Detention Center, TX',
+    'El Dorado, CA',
+    'Ellis County, KS',
+    'Elmore County, AL 5736',
+    'ENSENADA',
+    'Esmeralda County, NV',
+    'EVDF, TX',
+    'Fayette County, TN',
+    'Ford County, KS',
+    'Freestone County Jail, TX',
+    'Fremont County Jail, CO',
+    'Gadsden Correctional Facility FL',
+    'Gilpin County Jail, CO',
+    'Golden State Annex, CA',
+    'Graham County, KS',
+    'Grant County - Sheridan City Detention, AR',
+    'Grant County, KS',
+    'Grant County, KY',
+    'Grant Parish, LA',
+    'Gray County, TX',
+    'Greene County, AL 8127',
+    'Greenup County, KY',
+    'Greenwood County, KS',
+    'Hamilton County, KS',
+    'Hardin County, KY',
+    'Harlan County, KY',
+    'Harper County, KS',
+    'Harrison County Detention Center, MS',
+    'Harrison County, IN - NEW 2022',
+    'Hart County Jail, KY',
+    'Haskell County, KS',
+    'Henderson, KY',
+    'Henry County, AL',
+    'Holmes County, FL',
+    'Hopkins County, TX',
+    'Houston County Detention Center, GA',
+    'Humboldt County, CA',
+    'Iberia Parish, LA',
+    'Iberville Parish, LA',
+    'Jackson County Detention Center, KY',
+    'Jackson County, MS',
+    'Jasper County Detention Center, SC',
+    'Jefferson County, AL',
+    'Jenkins County, GA',
+    'Jessamine County, KY',
+    'Johnson County Adult Detention Center, KS',
+    'Jones County Adult Detention Center, MS',
+    'Kendall County, TX',
+    'Kentucky River Regional Jail, KY',
+    'Kerr County, TX',
+    'Kingman County, KS',
+    'Kings County (Juvenile), CA',
+    'Kings County Jail (Adult), CA',
+    'Kintock Group - Bridgeton, NJ',
+    'Kintock Group - Newark, NJ',
+    'Kintock Group - Philadelphia, PA',
+    'Kiowa County, KS',
+    'Knox County, KY',
+    'Knox County, TN',
+    'Lake County, TN',
+    'Lamar County, TX',
+    'Lamb County, TX',
+    'Larimer County, CO',
+    'Larue County, KY',
+    'LaSalle County Regional Detention Center, TX',
+    'LaSalle County, TX',
+    'Latimer County, OK',
+    'Lauderdale County, MS',
+    'Laurel County, KY',
+    'Lawrence County, TN',
+    'Lee County, AL',
+    'Leslie County, KY',
+    'Letcher County, KY',
+    'Lewis and Clark County Jail, MT',
+    'Lincoln County Jail, TN',
+    'Live Oak County, TX',
+    'Logan County, KY - Inmate Trust',
+    'Lowndes County, AL 8215',
+    'Lynn County, TX',
+    'Lyon County, KS',
+    'Macon County, AL',
+    'Madison County Criminal Justice Complex, TN',
+    'Madison County, AL',
+    'Marion County, AL',
+    'Marion County, AR',
+    'Marion County, OR',
+    'Marshall County, KS',
+    'Maury County, TN',
+    'McCulloch County Jail, TX',
+    'Meade County, KY',
+    'Medina County Jail, TX',
+    'Mills County, TX',
+    'Missoula County, MT',
+    'Monroe County, AR',
+    'Montgomery City, AL 2414',
+    'Montgomery County, KS',
+    'Montgomery County, KY',
+    'Montgomery County, TN',
+    'Montrose County, CO',
+    'Moore County Detention Center, NC',
+    'Morgan County, AL - NEW 1/30/2023',
+    'Morgan County, IN',
+    'Muscle Shoals, AL',
+    'Nelson County, KY',
+    'Newton County Jail, MS',
+    'Nolan County, TX',
+    'Oldham County, KY',
+    'Oriana House - The McDonnell Center, OH',
+    'Pawnee County, KS',
+    'Pike County, AL 4347',
+    'Pike County, KY',
+    'Pittsburg County, OK',
+    'Plaquemines Parish, LA',
+    'Powell County, KY',
+    'Prairie County, AR',
+    'Pushmataha County, OK',
+    'Putnam County, TN',
+    'Rains County Jail, TX',
+    'Randolph County, IL',
+    'Rapides Parish Detention Center 1, LA',
+    'Rapides Parish Detention Center 3, LA',
+    'Red Willow County Jail, NE',
+    'Republic County Jail, KS',
+    'Rockcastle, KY',
+    'Rooks County, KS',
+    'Rowan County, KY',
+    'Rutherford County, TN - ICS',
+    'Rutherford Work Center, TN - ICS',
+    'San Jacinto County, TX',
+    'Scott County Detention Center, KY',
+    'Seminole County, OK',
+    'Sevier County, UT',
+    'Shackelford County, TX',
+    'Sheridan County Sheriff, WY',
+    'Simpson County, KY - Inmate Account NEW',
+    'Somervell County, TX',
+    'South Louisiana Detention Facility, LA',
+    'St. Charles Parish, LA',
+    'St. James Parish, LA',
+    'St. Landry Parish, LA',
+    'St. Martin Parish Corrections 1 - Main Jail, LA',
+    'Sullivan County Jail, IN',
+    'Sullivan County, TN (Community Readiness)',
+    'Sumner County Detention Center, KS',
+    'Terrebonne Parish, LA',
+    'Test Facility - Dane County, WI',
+    'Thomas County Jail, KS',
+    'Thurston County, NE',
+    'Tillamook County, OR',
+    'Tohono Oodham Nation, AZ',
+    'Trego County, KS',
+    'Upshur County, TX',
+    'Upton County Jail, TX',
+    'Valley County Sheriffs Office, MT',
+    'Vanderburgh County, IN',
+    'Vigo County Jail, IN',
+    'Wasatch County Sheriff\'s Office, UT',
+    'Washington County, AL 2202',
+    'Wayne County Detention Center, MS',
+    'Wayne County, KY- New',
+    'Weakley County Detention Center, TN',
+    'West Baton Rouge Parish, LA',
+    'Wharton County, TX',
+    'Whitley County, IN',
+    'Williamson County, TN',
+    'Winston County, AL 8765',
+    'Woodford County, KY',
+    'Yamhill County Jail, OR',
+    'Zapata County, TX',
+    'Zavala County Jail, TX'
+                ];
+
+                // Helper to get a random item from an array
+                function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+                // Generate 30 devices
+                window.allDeviceData = Array.from({length: 900}, () => {
+                    // Weighted status distribution
+                    let status;
+                    const r = Math.random() * 100;
+                    if (r < 80) status = 'Online';
+                    else if (r < 90) status = 'Error';
+                    else if (r < 95) status = 'Offline';
+                    else status = 'Maintenance';
+
+                    return {
+                        kioskId: rand(kioskIds),
+                        deviceType: rand(deviceTypes),
+                        hardwareType: rand(hardwareTypes),
+                        deviceName: rand(deviceNames),
+                        facility: rand(facilityNames),
+                        status: status
+                    };
+                });
+            }
+        });
+    </script>
+    
+    <!-- Include your existing scripts -->
+    <script src="script.js"></script>
+    <script src="no-search.js"></script>
+</body>
+</html>
