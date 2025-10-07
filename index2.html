@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/forge.css" />
-    <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.8.1/index.js"></script>
-    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/css/tyler-font.css" />
+    <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/forge-core.css" />
+  <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/theme/forge-theme.css" />
+  <link rel="stylesheet"
+    href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/typography/forge-typography.css" />
+  <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/forge.css" />
+  <link rel="stylesheet"
+    href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/button/forge-button.css" />
+  <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/table/forge-table.css" />
+  <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/index.js"></script>
+  <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/button/index.js"></script>
+  <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/table/index.js"></script>
+  <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/icon/index.js"></script>
+  <script type="module" src="https://cdn.forge.tylertech.com/v1/libs/@tylertech/forge@3.10.5/icon-button/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.forge.tylertech.com/v1/css/tyler-font.css" />
 </head>
 
 <body>
@@ -35,6 +46,12 @@
                 </div>
                 <div slot="start">
                     <p class="forge-typography--subheading3">Hardware overview</p>
+                    <forge-icon external name="remote_desktop" style="display:none;"></forge-icon>
+                                        <forge-icon external name="remote_desktop" style="display:none;"></forge-icon>
+                    <forge-icon external name="cog_clockwise" style="display:none;"></forge-icon>
+                                        <forge-icon external name="stop_circle_outline" style="display:none;"></forge-icon>
+
+
                 </div>
             </forge-toolbar>
             <forge-banner persistent theme="warning" class="maintenance-banner">
@@ -156,7 +173,7 @@
                                 <forge-icon external external-type="standard" name="devices"
                                     class="hardware-icon"></forge-icon>
                                 <div class="hardware-name-text">
-                                    <p class="forge-typography--heading6 hardware-name-text-heading">KCJ - L2</p>
+                                    <p class="forge-typography--heading4 hardware-name-text-heading">KCJ - L2</p>
                                     <p class="forge-typography--body1 hardware-name-text-id kiosk-id">Kiosk ID: 21679
                                     </p>
                                 </div>
@@ -174,6 +191,12 @@
                                     <forge-icon external external-type="standard" name="refresh"></forge-icon>
                                     Reboot
                                 </forge-button>
+                                <forge-menu id="hardware-actions-menu" placement="bottom-end">
+                                    <forge-button variant="outlined">
+                                        More actions
+                                        <forge-icon slot="end" external external-type="standard" name="arrow_drop_down"></forge-icon>
+                                    </forge-button>
+                                </forge-menu>
                             </div>
                         </div>
 
@@ -248,6 +271,20 @@
                                 </div>
                                 <div class="settings-content-item">
                                     <div class="settings-content-item-left">
+                                        <p class="forge-typography--heading1">Assigned facility</p>
+                                        <p class="forge-typography--subheading1">Select the facility this device is assigned to</p>
+                                    </div>
+                                    <div class="settings-content-item-right">
+                                        <forge-autocomplete id="assigned-facility-autocomplete">
+                                            <forge-text-field popover-icon>
+                                                <label for="assigned-facility-input">Select facility</label>
+                                                <input type="text" id="assigned-facility-input" autocomplete="off" />
+                                            </forge-text-field>
+                                        </forge-autocomplete>
+                                    </div>
+                                </div>
+                                <div class="settings-content-item">
+                                    <div class="settings-content-item-left">
                                         <p class="forge-typography--heading1">Device location</p>
                                         <p class="forge-typography--subheading1">Specify the device's location within
                                             the facility</p>
@@ -266,9 +303,9 @@
                                             facility areas</p>
                                     </div>
                                     <div class="settings-content-item-right">
-                                        <forge-chip-field density="extra-large">
-                                            <label slot="label" for="tag-input">Enter allowed locations</label>
-                                            <input type="text" id="tag-input" />
+                                        <forge-chip-field id="allowed-locations-chip-field" density="extra-large" add-on-blur>
+                                            <label slot="label" for="allowed-locations-input">Enter allowed locations</label>
+                                            <input type="text" id="allowed-locations-input" />
                                         </forge-chip-field>
                                     </div>
                                 </div>
@@ -279,12 +316,13 @@
                                             facility areas</p>
                                     </div>
                                     <div class="settings-content-item-right">
-                                        <forge-chip-field density="extra-large">
-                                            <label slot="label" for="tag-input">Enter restricted locations</label>
-                                            <input type="text" id="tag-input" />
+                                        <forge-chip-field id="restricted-locations-chip-field" density="extra-large" add-on-blur>
+                                            <label slot="label" for="restricted-locations-input">Enter restricted locations</label>
+                                            <input type="text" id="restricted-locations-input" />
                                         </forge-chip-field>
                                     </div>
                                 </div>
+                                
 
                             </div>
                             <forge-toolbar auto-height no-border class="settings-content-footer">
@@ -415,7 +453,6 @@
                 </div>
                 <div class="right-panel">
                     <forge-card raised class="right-panel-card">
-                        <forge-accordion>
                             <!-- System Information -->
                             <forge-expansion-panel open>
                                 <div slot="header" class="accordion-header">
@@ -693,7 +730,6 @@
                                     <p class="forge-typography--body1 drawer-value">Rachel G</p>
                                 </div>
                             </forge-expansion-panel>
-                        </forge-accordion>
                     </forge-card>
                     <forge-card raised class="notes-card">
                         <forge-toolbar>
@@ -725,10 +761,6 @@
     </forge-scaffold>
 </body>
 <script>
-    // Get references to your elements
-    const chipField = document.querySelector('forge-chip-field');
-    const input = document.querySelector('#tag-input');
-
     // Add mini drawer toggle functionality
     const menuButton = document.getElementById('menu-button');
     const miniDrawer = document.getElementById('mini-drawer');
@@ -756,85 +788,197 @@
         videoVisitationSelect.style.display = event.target.checked ? 'block' : 'none';
     });
 
-    // Function to create a new chip
-    function createChip(value) {
-        if (!value.trim()) return;
+    // Function to handle chip fields
+    function handleChipFields() {
+        const allowedLocationsChipField = document.getElementById('allowed-locations-chip-field');
+        const restrictedLocationsChipField = document.getElementById('restricted-locations-chip-field');
+        
+        if (!allowedLocationsChipField || !restrictedLocationsChipField) return;
 
-        // Create a new chip element
-        const chip = document.createElement('forge-chip');
-        chip.textContent = value.trim();
-
-        // Set the chip type to "input" and dense to true
-        chip.setAttribute('type', 'input');
-        chip.setAttribute('dense', 'true');
-
-        // Add delete functionality
-        chip.addEventListener('forge-chip-delete', (event) => {
-            chip.remove();
-            // Focus the input when a chip is deleted
-            input.focus();
-        });
-
-        // Insert the chip before the input
-        input.parentNode.insertBefore(chip, input);
-
-        // Clear the input
-        input.value = '';
-
-        // Ensure focus remains on the input field after chip creation
-        setTimeout(() => {
-            input.focus();
-        }, 0);
+        // Initialize chip fields (empty)
+        initializeChipField(allowedLocationsChipField, 'allowed-locations-input');
+        initializeChipField(restrictedLocationsChipField, 'restricted-locations-input');
     }
 
-    // Add event listener for Enter key
-    input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            createChip(input.value);
-        }
-    });
+    // Helper function to initialize a chip field
+    function initializeChipField(chipField, inputId, initialChips = []) {
+        const input = chipField.querySelector(`#${inputId}`);
+        
+        if (!input) return;
 
-    // Optional: Add chip on blur if addOnBlur is true
-    if (chipField.hasAttribute('add-on-blur')) {
-        input.addEventListener('blur', (event) => {
-            // Check if the related target is outside the chip field
-            // This prevents creating a chip when clicking between chips
-            if (!chipField.contains(event.relatedTarget)) {
-                createChip(input.value);
+        // Add initial chips if provided
+        initialChips.forEach(chipText => {
+            addChipToField(chipField, chipText);
+        });
+
+        // Handle Enter key press to add new chips
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const value = input.value.trim();
+                if (value) {
+                    addChipToField(chipField, value);
+                    input.value = '';
+                }
             }
         });
+
+        // Handle chip field member added event
+        chipField.addEventListener('forge-chip-field-member-added', (event) => {
+            const chipText = event.detail;
+            addChipToField(chipField, chipText);
+        });
     }
 
-    // Listen for popover icon clicks if applicable
-    chipField.addEventListener('forge-field-popover-icon-click', (event) => {
-        // Handle popover expansion
-        chipField.popoverExpanded = !chipField.popoverExpanded;
-    });
+    // Helper function to add a chip to a chip field
+    function addChipToField(chipField, chipText) {
+        // Check if chip already exists
+        const existingChips = chipField.querySelectorAll('forge-chip');
+        const chipExists = Array.from(existingChips).some(chip => 
+            chip.textContent.trim() === chipText
+        );
 
-    // Add custom CSS to ensure chips stay inline with input
-    document.addEventListener('DOMContentLoaded', () => {
-        // Apply styles to make sure chips and input stay on the same line
-        const style = document.createElement('style');
-        style.textContent = `
-    forge-chip-field {
-      --forge-chip-field-content-spacing: 4px;
-      --forge-chip-field-member-spacing: 4px;
+        if (chipExists) return;
+
+        // Create new chip
+        const chip = document.createElement('forge-chip');
+        chip.setAttribute('slot', 'member');
+        chip.type = 'field';
+        chip.dense = true;
+        chip.value = chipText;
+        chip.textContent = chipText;
+
+        // Add location icon to the chip
+        const icon = document.createElement('forge-icon');
+        icon.setAttribute('slot', 'start');
+        icon.setAttribute('external', '');
+        icon.setAttribute('external-type', 'standard');
+        icon.name = 'place';
+        chip.appendChild(icon);
+
+        // Handle chip deletion
+        chip.addEventListener('forge-chip-delete', () => {
+            chip.remove();
+        });
+
+        chipField.appendChild(chip);
     }
-    
-    forge-chip-field input {
-      flex: 1;
-      min-width: 60px;
-      margin: 2px 0;
+
+    // Function to handle assigned facility autocomplete
+    function handleAssignedFacilityAutocomplete() {
+        const autocomplete = document.getElementById('assigned-facility-autocomplete');
+        
+        if (!autocomplete) return;
+
+        // Sample facility data organized by state
+        const facilitiesByState = {
+            'Tennessee': [
+                { value: 'knox-county-jail', label: 'Knox County Jail', secondaryLabel: 'ID: 2342' },
+                { value: 'knox-county-detention', label: 'Knox County Detention Center', secondaryLabel: 'ID: 1876' },
+                { value: 'knox-county-workhouse', label: 'Knox County Workhouse', secondaryLabel: 'ID: 3451' },
+                { value: 'knox-county-juvenile', label: 'Knox County Juvenile Detention', secondaryLabel: 'ID: 2987' },
+                { value: 'blount-county-jail', label: 'Blount County Jail', secondaryLabel: 'ID: 4123' },
+                { value: 'sevier-county-jail', label: 'Sevier County Jail', secondaryLabel: 'ID: 5678' },
+                { value: 'anderson-county-jail', label: 'Anderson County Jail', secondaryLabel: 'ID: 7890' },
+                { value: 'campbell-county-jail', label: 'Campbell County Jail', secondaryLabel: 'ID: 1234' },
+                { value: 'clinton-county-jail', label: 'Clinton County Jail', secondaryLabel: 'ID: 4567' },
+                { value: 'cumberland-county-jail', label: 'Cumberland County Jail', secondaryLabel: 'ID: 8901' }
+            ],
+            'Kentucky': [
+                { value: 'jefferson-county-jail', label: 'Jefferson County Jail', secondaryLabel: 'ID: 2345' },
+                { value: 'fayette-county-jail', label: 'Fayette County Jail', secondaryLabel: 'ID: 6789' },
+                { value: 'kenton-county-jail', label: 'Kenton County Jail', secondaryLabel: 'ID: 0123' },
+                { value: 'boone-county-jail', label: 'Boone County Jail', secondaryLabel: 'ID: 4567' },
+                { value: 'campbell-county-ky-jail', label: 'Campbell County Jail', secondaryLabel: 'ID: 8901' }
+            ],
+            'Georgia': [
+                { value: 'fulton-county-jail', label: 'Fulton County Jail', secondaryLabel: 'ID: 3456' },
+                { value: 'cobb-county-jail', label: 'Cobb County Jail', secondaryLabel: 'ID: 7890' },
+                { value: 'gwinnett-county-jail', label: 'Gwinnett County Jail', secondaryLabel: 'ID: 1234' },
+                { value: 'dekalb-county-jail', label: 'DeKalb County Jail', secondaryLabel: 'ID: 5678' },
+                { value: 'chatham-county-jail', label: 'Chatham County Jail', secondaryLabel: 'ID: 9012' }
+            ],
+            'North Carolina': [
+                { value: 'mecklenburg-county-jail', label: 'Mecklenburg County Jail', secondaryLabel: 'ID: 4567' },
+                { value: 'wake-county-jail', label: 'Wake County Jail', secondaryLabel: 'ID: 8901' },
+                { value: 'guilford-county-jail', label: 'Guilford County Jail', secondaryLabel: 'ID: 2345' },
+                { value: 'forsyth-county-jail', label: 'Forsyth County Jail', secondaryLabel: 'ID: 6789' },
+                { value: 'durham-county-jail', label: 'Durham County Jail', secondaryLabel: 'ID: 0123' }
+            ]
+        };
+
+        // Function to group facilities by state
+        function groupFacilitiesByState(facilities) {
+            const groups = [];
+            
+            Object.keys(facilitiesByState).forEach(state => {
+                const stateFacilities = facilitiesByState[state].filter(facility => 
+                    facility.label.toLowerCase().includes(facilities.toLowerCase())
+                );
+                
+                if (stateFacilities.length > 0) {
+                    groups.push({
+                        text: state,
+                        options: stateFacilities
+                    });
+                }
+            });
+            
+            return groups;
+        }
+
+        // Enable secondary labels for the autocomplete
+        autocomplete.secondaryLabel = true;
+
+        // Set up the filter function with grouping
+        autocomplete.filter = (filter) => {
+            if (!filter) {
+                // Return all facilities grouped by state when no filter
+                return Object.keys(facilitiesByState).map(state => ({
+                    text: state,
+                    options: facilitiesByState[state]
+                }));
+            }
+            
+            // Filter and group by state
+            return groupFacilitiesByState(filter);
+        };
+
+        // Custom selected text builder to show facility name with ID
+        autocomplete.selectedTextBuilder = (selectedOptions) => {
+            if (selectedOptions.length === 0) return '';
+            
+            const selectedOption = selectedOptions[0];
+            const facilityName = selectedOption.label;
+            const facilityId = selectedOption.secondaryLabel;
+            
+            // Return facility name with ID in parentheses
+            return `${facilityName} (${facilityId})`;
+        };
+
+        // Handle selection
+        autocomplete.addEventListener('forge-autocomplete-change', (event) => {
+            console.log('Selected facility:', event.detail);
+        });
+
+        // Set initial value if needed (e.g., from URL parameters)
+        const deviceData = getQueryParams();
+        if (deviceData.facility) {
+            // Find the facility by name across all states and set it as the value
+            let foundFacility = null;
+            Object.values(facilitiesByState).flat().forEach(facility => {
+                if (facility.label.toLowerCase().includes(deviceData.facility.toLowerCase())) {
+                    foundFacility = facility;
+                }
+            });
+            
+            if (foundFacility) {
+                autocomplete.value = foundFacility.value;
+            }
+        }
     }
-    
-    forge-chip {
-      display: inline-flex;
-      margin: 2px 4px 2px 0;
-    }
-  `;
-        document.head.appendChild(style);
-    });
+
+
 </script>
 <script>
     // Function to get query parameters
@@ -1190,12 +1334,101 @@
         updateButtonText(expansionPanel.open);
     }
 
+    // Function to handle hardware actions menu
+    function handleHardwareActionsMenu() {
+        const menu = document.getElementById('hardware-actions-menu');
+        
+        if (!menu) return;
+
+        // Define menu options
+        const menuOptions = [
+                        { 
+                                value: 'remote-access', 
+                                label: 'Remote access', 
+                                leadingIcon: 'remote_desktop',
+                                leadingIconType: 'component',
+                                leadingIconExternal: true,
+                                // Use provided inline SVG for remote access icon
+                                leadingIconSvg: `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M3 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M3 4h18v12H3M15 5l-3.5 3.5L15 12l1.4-1.4-2.1-2.1 2.1-2.1M9 8 7.6 9.4l2.1 2.1-2.1 2.1L9 15l3.5-3.5"/>
+</svg>`
+                        },
+            { 
+                value: 'system-logs', 
+                label: 'View system logs', 
+                leadingIcon: 'description', 
+                leadingIconType: 'component',
+                leadingIconExternal: true
+            },
+            { 
+                value: 'network-test', 
+                label: 'Test network connection', 
+                leadingIcon: 'network_check', 
+                leadingIconType: 'component',
+                leadingIconExternal: true
+            },
+            { label: null, value: null, divider: true },
+            { 
+                value: 'factory-reset', 
+                label: 'Factory reset', 
+                leadingIcon: 'cog_clockwise', 
+                leadingIconType: 'component',
+                leadingIconExternal: true
+            },
+            { 
+                value: 'emergency-stop', 
+                label: 'Emergency stop', 
+                leadingIcon: 'stop_circle_outline', 
+                leadingIconType: 'component',
+                leadingIconExternal: true,
+                theme: 'error'
+            }
+        ];
+
+        // Set menu options
+        menu.options = menuOptions;
+
+        // Handle menu selection
+        menu.addEventListener('forge-menu-select', (event) => {
+            const { value, label } = event.detail;
+            
+            console.log('Menu item selected:', { value, label });
+            
+            // Handle different actions based on the selected value
+            switch (value) {
+                case 'remote-access':
+                    alert('Initiating remote access to device...');
+                    break;
+                case 'system-logs':
+                    alert('Opening system logs viewer...');
+                    break;
+                case 'network-test':
+                    alert('Running network connectivity test...');
+                    break;
+                case 'factory-reset':
+                    alert('Factory reset is currently disabled for safety.');
+                    break;
+                case 'emergency-stop':
+                    if (confirm('Are you sure you want to perform an emergency stop? This will immediately halt all device operations.')) {
+                        alert('Emergency stop initiated!');
+                    }
+                    break;
+                default:
+                    console.log('Unknown action selected:', value);
+            }
+        });
+    }
+
     // Call the functions when the page loads
     document.addEventListener('DOMContentLoaded', () => {
         handleAlertsCardVisibility();
         handleStatusBanners();
         handleMaintenanceModeCheckbox();
         handleExpansionPanelToggle();
+        handleHardwareActionsMenu();
+        handleChipFields();
+        handleAssignedFacilityAutocomplete();
     });
 </script>
 <script>
