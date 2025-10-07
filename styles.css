@@ -219,7 +219,7 @@ body {
     color: var(--forge-theme-text-medium);
 }
 
-forge-accordion .drawer-info-grid {
+.drawer-info-grid {
     padding: 0rem 1.5rem;
 }
 
